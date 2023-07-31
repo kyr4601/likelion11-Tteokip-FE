@@ -1,0 +1,218 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="veiwport" content="width=device-width, initial-scale=1.0" />
+    <title>Detail</title>
+    <link rel="stylesheet" href="../css/detail.css" />
+    <!--
+        <script src="detail.js" defer></script>
+    -->
+</head>
+<body>
+<nav class="navbar">
+    <div class="navbar__logo">
+        <img src="../img/Koun_logo.png" alt="logo" class="logoImg">
+    </div>
+    <ul class="navbar__menu">
+        <li class="navbar__menu__item">logout</li>
+        <li class="navbar__menu__item">결과확인</li>
+        <li class="navbar__menu__item">마이페이지</li>
+        <li class="navbar__menu__item">고객센터</li>
+    </ul>
+</nav>
+
+<div id="header" class="header">
+    <div id="prog_menu" class="prog_nav">
+        <ul class="progitemWrapper">
+            <li class="progitemText" id="current">01.상세정보</li>
+            <li class="bar"> - </li>
+            <li class="progitemText">02.좌석선택</li>
+            <li class="bar"> - </li>
+            <li class="progitemText">03.결제하기</li>
+        </ul>
+    </div>
+</div>
+<div class="contents">
+    <div class="title">
+        <div class="summaryTop">
+            <div class="title">
+                <h2 class="d-day">[D-2]</h2>
+                <h2 class="prdTitle">라우브 내한공연 (Lauv in Seoul)</h2>
+            </div>
+            <ul class="titleinfo">
+                <li class="dateinfo">2023.08.29</li>
+                <li class="section">|</li>
+                <li class="placeinfo">KSPO DOME(올림픽체조경기장)</li>
+            </ul>
+        </div>
+    </div>
+    <div class="productWrapper">
+        <div class="productMain">
+
+            <div class="productMainTop">
+                <div class="posterBox">
+                    <img class="posterBoxImage" src="../img/Poster_Lauv.png" alt="라우브 내한공연 (Lauv in Seoul)">
+                </div>
+                <div class="information">
+                    <ul class="info">
+                        <li class="infoItem">
+                            <p class="infoLabel">관람연령</p>
+                            <p class="infoText">만 12세 이상</p>
+                        </li>
+                        <li class="infoItem">
+                            <p class="infoLabel">관람시간</p>
+                            <p class="infoText">총 80분</p>
+                        </li>
+                        <li class="infoItem">
+                            <p class="infoLabel">출연</p>
+                            <p class="infoText">라우브</p>
+                        </li>
+                        <li class="infoItem">
+                            <p class="infoLabel">가격</p>
+                            <ul class="infoPriceList">
+                                <li class="infoPriceItem">
+                                    <span class="name">P석</span>
+                                    <span class="price">154,000원</span>
+                                </li>
+                                <li class="infoPriceItem">
+                                    <span class="name">P석</span>
+                                    <span class="price">154,000원</span>
+                                </li>
+                                <li class="infoPriceItem">
+                                    <span class="name">스탠딩석</span>
+                                    <span class="price">154,000원</span>
+                                </li>
+                                <li class="infoPriceItem">
+                                    <span class="name">R석</span>
+                                    <span class="price">154,000원</span>
+                                </li>
+                                <li class="infoPriceItem">
+                                    <span class="name">S석</span>
+                                    <span class="price">154,000원</span>
+                                </li>
+                            </ul>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+            <div class="productMainBody">
+                <div class="realInfo">상세정보</div>
+                <p>뭔가</p>
+                <p>스크롤을</p>
+                <p>내려도</p>
+                <p>사이드바는</p>
+                <p>내려가지 않았으면</p>
+                <p>좋겠다</p>
+                <p>ㅎㅅㅎ</p>
+            </div>
+        </div>
+        <div class="productSide">
+            <div class="sideMain">
+                <div class="sideContainer">
+                    <div class="sideHeader">
+                        <h4 class="sideTitle"></h4>
+                        <div class="selectedData">
+                            <span class="date"></span>
+                        </div>
+                    </div>
+                    <div class="sideContent">
+                        <div class="sideCalandar">
+                            <div class="datepicker"></div>
+                            <div class="datepicker-inine">
+                                <ul class="list">
+                                    <li data-view="month prev" class="disabled"><</li>
+                                    <li data-view="month current" class="disabled">2023.07</li>
+                                    <li data-view="month next" class="disabled">></li>
+                                </ul>
+                                <table class="calandar">
+                                    <thead data-view="week" class="weeklist">
+                                    <tr class="dateCalandar">
+                                        <th class="date">sun</th>
+                                        <th class="date">mon</th>
+                                        <th class="date">tue</th>
+                                        <th class="date">wed</th>
+                                        <th class="date">thu</th>
+                                        <th class="date">fri</th>
+                                        <th class="date">sat</th>
+                                    </tr>
+                                    </thead>
+                                    <tbody data-view="days" class="daylist">
+                                    <tr class="dateCalandar">
+                                        <td class="muted">0</td>
+                                        <td class="muted">0</td>
+                                        <td class="muted">0</td>
+                                        <td class="muted">0</td>
+                                        <td class="muted">0</td>
+                                        <td class="muted">0</td>
+                                        <td class="disabled">1</td>
+                                    </tr>
+                                    <tr>
+                                        <td class="disabled">2</td>
+                                        <td class="disabled">3</td>
+                                        <td class="disabled">4</td>
+                                        <td class="disabled">5</td>
+                                        <td class="disabled">6</td>
+                                        <td class="disabled">7</td>
+                                        <td class="disabled">8</td>
+                                    </tr>
+                                    <tr>
+                                        <td class="disabled">9</td>
+                                        <td class="disabled">10</td>
+                                        <td class="disabled">11</td>
+                                        <td class="disabled">12</td>
+                                        <td class="disabled">13</td>
+                                        <td class="disabled">14</td>
+                                        <td class="disabled">15</td>
+                                    </tr>
+                                    <tr>
+                                        <td class="disabled">16</td>
+                                        <td class="disabled">17</td>
+                                        <td class="disabled">18</td>
+                                        <td class="disabled">19</td>
+                                        <td class="disabled">20</td>
+                                        <td class="disabled">21</td>
+                                        <td class="disabled">22</td>
+                                    </tr>
+                                    <tr>
+                                        <td class="disabled">23</td>
+                                        <td class="disabled">24</td>
+                                        <td class="disabled">25</td>
+                                        <td class="disabled">26</td>
+                                        <td class="disabled">27</td>
+                                        <td class="disabled">28</td>
+                                        <td class="disabled">29</td>
+                                    </tr>
+                                    <tr>
+                                        <td class="able">30</td>
+                                        <td class="disabled">31</td>
+                                    </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="sideBottom">
+                        <div class="sideBottomHeader">
+                            <a class="sideBottomHeaderTitle" href="#">관람시간 상세></a>
+                        </div>
+                        <div class="sideBottomContent">
+                            <div class="timeInfo">
+                                <a class="timeInfoBtn" href="#"></a>
+                            </div>
+                            <div class="timeTableLabel_toggled">
+                                <button class="timeTableBtn">1회 17:00</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="sideBtnWrap">
+                <button class="reserve_btn">응모하기</button>
+            </div>
+        </div>
+    </div>
+
+</div>
+</body>
+</html>

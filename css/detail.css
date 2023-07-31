@@ -1,0 +1,333 @@
+:root {
+
+    /*Color*/
+    --color-main-green: #26DDB1;
+    --color-main-gray: #8C9091;
+    --color-main-white: #FFFFFF;
+    --color-main-black: #3D3B3B;
+
+    /*Font size*/
+    --font-large: 48px;
+    --font-medium: 28px;
+    --font-regular: 18px;
+    --font-small: 16px;
+    --font-micro: 13px;
+
+    font-family: 'Pretendard';
+
+    list-style: none; /*광역으로 먹이고 싶어요*/
+
+}
+
+/*nav*/
+
+.navbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 3px;
+    color: var(--color-main-gray);
+    border: 1px solid var(--color-main-white);
+    box-shadow: 0 2px 2px -2px #b4b4b4;
+}
+
+.navbar__logo {
+    padding-left: 150px;
+    float: left;
+}
+
+.logoImg {
+    width: 100px;
+    height:27px;
+    object-fit: cover;
+}
+
+
+.navbar__menu {
+    padding-right: 0;
+    margin: 0 150px;
+    float: right;
+}
+
+.navbar__menu__item {
+    float: left;
+    font-size: var(--font-micro);
+    padding: 3px 6px;
+    list-style: none;
+}
+
+/*header_progression*/
+
+.header {
+    display: flex;
+    justify-content: flex-end;
+    margin-right: 150px;
+}
+
+
+.prog_nav {
+    justify-content: space-around;
+}
+
+/*바 형태는 그대로 가져가고 그 안에서 오른쪽 정렬하는게 왜이렇게 힘드냐*/
+
+
+.progitemWrapper {
+    display: flex;
+    justify-content: space-between;
+    list-style-type: none;
+    margin: 0 10px;
+    padding-top: 10px;
+    font-size: var(--font-micro);
+    color: var(--color-main-gray);
+
+    /*
+    border-bottom: 1px solid var(--color-main-gray);
+    */
+
+    /*여기서 li들을 오른쪽으로 정렬할 수 있을까*/
+}
+
+.progitemText {
+    padding: 0 10px;
+    list-style: none;
+
+}
+
+#current {
+    color: var(--color-main-black);
+    font-weight: bold;
+}
+
+.bar {
+    padding: 0 10px;
+    list-style-type: none;
+
+}
+
+/*main_title*/
+
+
+
+.contents {
+    margin: 0 150px;
+}
+/*
+.summaryTop {
+    border-bottom: 2px solid var(--color-main-black);
+}*/
+
+.title {
+    display: flex;
+}
+.d-day, .prdTitle{
+    margin: 0;
+    font-weight: bold;
+}
+
+
+.titleinfo {
+    list-style: none;
+    display: flex;
+    flex-direction: row;
+    margin-top: 0;
+    padding-left: 0;
+    font-weight: normal;
+}
+
+.dateinfo, .section {
+    margin-right: 10px;
+}
+
+
+/*main_container*/
+
+.productWrapper {
+    display: flex;
+    justify-content: space-between;
+    border-top: 2px solid var(--color-main-black);
+}
+
+/*main_poster*/
+
+.posterBox {
+    margin-left: 10px;
+    padding: 0;
+    width: 300px;
+    height: 401px;
+}
+
+.posterBoxImage {
+    display: inline-block;
+    width: 300px;
+}
+
+.information {
+    margin-right: 100px;
+}
+
+.productMainTop {
+    display: flex;
+    justify-content: flex-start;
+    box-shadow: 0 2px 2px -2px #b4b4b4;
+
+}
+
+/*main_information*/
+
+.info {
+    list-style-type: none;
+    display: inline-block;
+    margin: 20px;
+    padding: 0;
+}
+
+.infoItem{
+    display: flex;
+    padding-right: 60px;
+    margin-right: 20px;
+}
+
+
+.infoLabel {
+    align-content: center;
+    background-size: 10px 10px;
+    width: 75px;
+    color: var(--color-main-gray);
+    margin: 10px 5px;
+
+}
+
+.infoText {
+    color: var(--color-main-black);
+    margin: 10px;
+    white-space: nowrap;
+
+}
+
+
+.infoPriceList {
+    padding-left: 0;
+    margin: 10px;
+    white-space: nowrap;
+
+}
+
+.infoPriceItem {
+    list-style: none;
+    margin-bottom: 5px;
+
+}
+
+/*side_calandar*/
+
+.sideTitle, .selectedData {
+    margin: 0;
+    padding: 0;
+    height: 0;
+}
+
+.sideContainer {
+    border: 1px solid var(--color-main-white);
+    width: 350px;
+    height: 450px;
+    margin: 10px;
+    border-radius: 5px;
+    box-shadow: 0.5px 0.5px 1px 0.5px var(--color-main-gray);
+    justify-content: center;
+}
+
+.sideCalandar {
+    margin: 10px;
+}
+
+.sideBottom {
+    margin: 0 20px;
+}
+
+.list {
+    list-style-type: none;
+    display: flex;
+    justify-content: space-between;
+    margin: 0;
+    padding: 0;
+}
+
+.calandar {
+    margin: 0 30px;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+}
+
+.weeklist {
+    padding: 10px;
+
+}
+
+.dateCalandar {
+    align-content: center;
+    justify-content: center;
+}
+
+.muted, .disabled, .able {
+    padding: 10px;
+    text-align: center;
+}
+
+.disabled {
+    color: var(--color-main-gray);
+}
+
+.muted {
+    opacity: 0;
+}
+
+.able {
+    /*border: 1px solid var(--color-main-green);*/
+    border-radius: 500px;
+    background-color: var(--color-main-green);
+    color: #FFFFFF;
+}
+.date {
+    padding: 5px;
+}
+
+
+.sideBottomContent, .sideBtnWrap {
+    display: flex;
+    justify-content: center;
+
+}
+
+
+.timeTableBtn {
+    background-color: var(--color-main-white);
+    color: var(--color-main-green);
+    border:1px solid var(--color-main-green);
+    border-radius:5px;
+    padding: 10px 30px;
+    /*이 상태는 선택 전, 선택하면 응모하기 버튼이랑 똑같은 디자인*/
+}
+
+/*side_payButton*/
+
+.sideBottomHeader {
+    margin-bottom: 10px;
+}
+
+.sideBottomHeaderTitle {
+    margin: 0;
+    font-size: 5px;
+    color: var(--color-main-black);
+}
+
+.reserve_btn {
+
+    background-color: var(--color-main-green);
+    color: var(--color-main-white);
+    border:none;
+    border-radius:5px;
+    padding: 10px 150px;
+    margin: 10px;
+}
