@@ -44,6 +44,8 @@
 
 
 .navbar__menu {
+    display: flex;
+    list-style: none;
     padding-right: 0;
     margin: 0 150px;
     float: right;
@@ -51,9 +53,10 @@
 
 .navbar__menu__item {
     float: left;
-    font-size: var(--font-micro);
-    padding: 3px 6px;
-    list-style: none;
+    font-size: var(--font-small);
+    padding: 3px 14px;
+    text-decoration: none;
+    color: var(--color-main-black);
 }
 
 /*header_progression*/
@@ -107,8 +110,6 @@
 
 /*main_title*/
 
-
-
 .contents {
     margin: 0 150px;
 }
@@ -145,12 +146,15 @@
 .productWrapper {
     display: flex;
     justify-content: space-between;
+    flex-wrap: wrap;
+    align-items: flex-start;
     border-top: 2px solid var(--color-main-black);
 }
 
 /*main_poster*/
 
 .posterBox {
+    position: relative;
     margin-left: 10px;
     padding: 0;
     width: 300px;
@@ -162,14 +166,27 @@
     width: 300px;
 }
 
+.circle-button {
+    position: absolute;
+    top: 30px;
+    right: 30px;
+    width: 40px;
+    height: 40px;
+    background-color: #c9c9c9;
+    opacity: 0.7;
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+}
+
 .information {
-    margin-right: 100px;
 }
 
 .productMainTop {
     display: flex;
     justify-content: flex-start;
-    box-shadow: 0 2px 2px -2px #b4b4b4;
 
 }
 
@@ -184,8 +201,6 @@
 
 .infoItem{
     display: flex;
-    padding-right: 60px;
-    margin-right: 20px;
 }
 
 
@@ -219,7 +234,19 @@
 
 }
 
-/*side_calandar*/
+/*상세정보*/
+.productMainBody {
+    margin-top: 10px;
+    box-shadow: 0 -2px 2px -2px #b4b4b4;
+
+}
+
+/*side_calendar*/
+
+.productSide {
+    position: sticky;
+    top: 0;
+}
 
 .sideTitle, .selectedData {
     margin: 0;
@@ -229,7 +256,7 @@
 
 .sideContainer {
     border: 1px solid var(--color-main-white);
-    width: 350px;
+    width: 300px;
     height: 450px;
     margin: 10px;
     border-radius: 5px;
@@ -237,7 +264,7 @@
     justify-content: center;
 }
 
-.sideCalandar {
+.sideCalendar {
     margin: 10px;
 }
 
@@ -253,16 +280,52 @@
     padding: 0;
 }
 
-.calandar {
+.calendar {
     margin: 0 30px;
     display: flex;
     flex-wrap: wrap;
     justify-content: space-around;
 }
 
-.weeklist {
-    padding: 10px;
+tbody {
+    display: flex;
+    flex-wrap: wrap;
+    width: 320px;
+    height: 350px;
+    justify-content: flex-start;
+    margin-left: 20px;
+}
 
+tr {
+    display: flex;
+    justify-content: flex-start;
+    align-content: center;
+    vertical-align: center;
+}
+
+td {
+    display: flex;
+    flex-wrap: wrap;
+    width: 42px;
+    height: 42px;
+    font-size: 15px;
+    justify-content: center;
+    align-content: center;
+    padding: 0;
+
+}
+
+.weeklist {
+    display: flex;
+    text-align: center;
+    justify-content: space-between;
+    color: var(--color-main-gray);
+    margin-left: 10px;
+}
+
+.thismonth {
+    width: 200px;
+    vertical-align: middle;
 }
 
 .dateCalandar {
@@ -270,10 +333,6 @@
     justify-content: center;
 }
 
-.muted, .disabled, .able {
-    padding: 10px;
-    text-align: center;
-}
 
 .disabled {
     color: var(--color-main-gray);
@@ -283,21 +342,10 @@
     opacity: 0;
 }
 
-.able {
-    /*border: 1px solid var(--color-main-green);*/
-    border-radius: 500px;
-    background-color: var(--color-main-green);
-    color: #FFFFFF;
-}
-.date {
-    padding: 5px;
-}
-
 
 .sideBottomContent, .sideBtnWrap {
     display: flex;
     justify-content: center;
-
 }
 
 
@@ -328,6 +376,45 @@
     color: var(--color-main-white);
     border:none;
     border-radius:5px;
-    padding: 10px 150px;
-    margin: 10px;
+    padding: 10px 125px;
+}
+
+/*반응형-nav오른쪽 깨지는 menu 수정*/
+
+@media screen and (max-width: 1240px) {
+
+    .navbar__menu{
+        margin: 0;
+    }
+    .header{
+        margin: 0;
+    }
+    .contents{
+        margin: 0;
+    }
+    .navbar__logo{
+        padding: 0;
+    }
+    .reserve_btn{
+        margin: 0;
+    }
+    .posterBox {
+        display: none;
+    }
+}
+
+@media screen and (max-width: 800px) {
+
+    .posterBox {
+        display: none;
+    }
+
+    .productWrapper {
+    }
+
+    .infoItem {
+        padding: 0;
+        margin: 0;
+    }
+
 }
