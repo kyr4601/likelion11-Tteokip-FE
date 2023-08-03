@@ -5,6 +5,8 @@
     <meta name="veiwport" content="width=device-width, initial-scale=1.0" />
     <title>Detail</title>
     <link rel="stylesheet" href="../css/detail.css" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.0/css/all.min.css">
+
     <!--
         <script src="detail.js" defer></script>
     -->
@@ -12,13 +14,13 @@
 <body>
 <nav class="navbar">
     <div class="navbar__logo">
-        <img src="../img/Koun_logo.png" alt="logo" class="logoImg">
+        <img src="../img/Koun_logo.png" alt="logo" class="logoImg" onclick="moveMain()">
     </div>
     <ul class="navbar__menu">
-        <li class="navbar__menu__item">logout</li>
-        <li class="navbar__menu__item">결과확인</li>
-        <li class="navbar__menu__item">마이페이지</li>
-        <li class="navbar__menu__item">고객센터</li>
+        <li><a href="#" class="navbar__menu__item">로그아웃</a></li>
+        <li><a href="#" class="navbar__menu__item">결과확인</a></li>
+        <li><a href="#" class="navbar__menu__item">마이페이지</a></li>
+        <li><a href="#" class="navbar__menu__item">고객센터</a></li>
     </ul>
 </nav>
 
@@ -53,6 +55,10 @@
             <div class="productMainTop">
                 <div class="posterBox">
                     <img class="posterBoxImage" src="../img/Poster_Lauv.png" alt="라우브 내한공연 (Lauv in Seoul)">
+                    <div id="likeBtn" class="circle-button">
+                        <i id="emptyHeart" class="fa-regular fa-heart fa-lg" style="color: #ffffff; display: flex;"></i>
+                        <i id="fillHeart" class="fa-solid fa-heart fa-lg" style="color: #ffffff; display: none;"></i>
+                    </div>
                 </div>
                 <div class="information">
                     <ul class="info">
@@ -105,6 +111,12 @@
                 <p>내려가지 않았으면</p>
                 <p>좋겠다</p>
                 <p>ㅎㅅㅎ</p>
+                <p>더</p>
+                <p>more</p>
+                <p>more</p>
+                <p>.</p>
+                <p>.</p>
+                <p>.</p>
             </div>
         </div>
         <div class="productSide">
@@ -117,78 +129,34 @@
                         </div>
                     </div>
                     <div class="sideContent">
-                        <div class="sideCalandar">
+                        <div class="sideCalendar">
                             <div class="datepicker"></div>
                             <div class="datepicker-inine">
-                                <ul class="list">
-                                    <li data-view="month prev" class="disabled"><</li>
-                                    <li data-view="month current" class="disabled">2023.07</li>
-                                    <li data-view="month next" class="disabled">></li>
-                                </ul>
-                                <table class="calandar">
-                                    <thead data-view="week" class="weeklist">
-                                    <tr class="dateCalandar">
-                                        <th class="date">sun</th>
-                                        <th class="date">mon</th>
-                                        <th class="date">tue</th>
-                                        <th class="date">wed</th>
-                                        <th class="date">thu</th>
-                                        <th class="date">fri</th>
-                                        <th class="date">sat</th>
-                                    </tr>
-                                    </thead>
-                                    <tbody data-view="days" class="daylist">
-                                    <tr class="dateCalandar">
-                                        <td class="muted">0</td>
-                                        <td class="muted">0</td>
-                                        <td class="muted">0</td>
-                                        <td class="muted">0</td>
-                                        <td class="muted">0</td>
-                                        <td class="muted">0</td>
-                                        <td class="disabled">1</td>
-                                    </tr>
-                                    <tr>
-                                        <td class="disabled">2</td>
-                                        <td class="disabled">3</td>
-                                        <td class="disabled">4</td>
-                                        <td class="disabled">5</td>
-                                        <td class="disabled">6</td>
-                                        <td class="disabled">7</td>
-                                        <td class="disabled">8</td>
-                                    </tr>
-                                    <tr>
-                                        <td class="disabled">9</td>
-                                        <td class="disabled">10</td>
-                                        <td class="disabled">11</td>
-                                        <td class="disabled">12</td>
-                                        <td class="disabled">13</td>
-                                        <td class="disabled">14</td>
-                                        <td class="disabled">15</td>
-                                    </tr>
-                                    <tr>
-                                        <td class="disabled">16</td>
-                                        <td class="disabled">17</td>
-                                        <td class="disabled">18</td>
-                                        <td class="disabled">19</td>
-                                        <td class="disabled">20</td>
-                                        <td class="disabled">21</td>
-                                        <td class="disabled">22</td>
-                                    </tr>
-                                    <tr>
-                                        <td class="disabled">23</td>
-                                        <td class="disabled">24</td>
-                                        <td class="disabled">25</td>
-                                        <td class="disabled">26</td>
-                                        <td class="disabled">27</td>
-                                        <td class="disabled">28</td>
-                                        <td class="disabled">29</td>
-                                    </tr>
-                                    <tr>
-                                        <td class="able">30</td>
-                                        <td class="disabled">31</td>
-                                    </tr>
-                                    </tbody>
-                                </table>
+                                <div id='calendar-container'>
+                                    <div class="calendar">
+                                        <table id="calendar">
+                                            <tr class="weeklist">
+                                                <td class="premonth"><label onclick="prevCalendar()"><</label></td>
+                                                <td id="tbCalendarYM" class="thismonth" colspan="3">
+                                                    yyyy. mm</td>
+                                                <td class="nextmonth"><label onclick="nextCalendar()">>
+
+                                                </label></td>
+                                            </tr>
+                                            <tr class="week">
+                                                <td class="day">일</td>
+                                                <td class="day">월</td>
+                                                <td class="day">화</td>
+                                                <td class="day">수</td>
+                                                <td class="day">목</td>
+                                                <td class="day">금</td>
+                                                <td class="day">토</td>
+                                            </tr>
+
+                                        </table>
+                                    </div>
+                                </div>
+
                             </div>
                         </div>
                     </div>
@@ -212,7 +180,10 @@
             </div>
         </div>
     </div>
-
 </div>
+
+<script src="../js/detail.js"></script>
+
+
 </body>
 </html>
