@@ -2,7 +2,7 @@
 1. detail에서 url로 넘긴 콘서트 제목 받아오기
 2. 해당 제목을 get의 params로 담아 해당 콘서트의 정보(장소, 일시, 구역가격, 사진) data 받아오기
 3. title-place, time, area-price, img에 data 채우기
-4. 결제하기 버튼 -> post - 선택구역, 매수, 콘서트 제목
+4. 결제하기 버튼 -> post - item name(콘서트 제목), 구역, 티켓가격, 매수
  */
 
 const paybox = document.getElementById("pay");
@@ -51,8 +51,28 @@ for (const area of areaElements) {
 const paybtn = document.getElementById("payBtn");
 
 paybtn.addEventListener("click", function (){
-    alert('응모가 완료되었습니다.' + '\n' + 'Koun이 당신의 행운을 빕니다.');
+    //외않되는대
+    if(paybox.style.display === "none"){
+        alert('구역을 선택해주세요.')
+    }else{
+        alert('응모가 완료되었습니다.' + '\n' + 'Koun이 당신의 행운을 빕니다.');
+        window.location.href = "main.html";
+    }
 })
 
 
+/*콘서트 제목으로 detail-raffle 연결*/
+function getTitleFromURL() {
+    const urlParams = new URLSearchParams(window.location.search);
+    return urlParams.get('raffle');
+}
 
+function renderResult() {
+    const titleTerm = getTitleFromURL();
+    const Result = document.getElementById('mainTitle');
+    // 서버에서 검색 결과를 가져오는 로직을 구현하고 해당 결과를 페이지2에 렌더링하는 작업을 수행한다.
+    Result.innerText = titleTerm;
+}
+
+// 페이지가 로드되었을 때 검색 결과를 렌더링
+window.addEventListener('DOMContentLoaded', renderResult);

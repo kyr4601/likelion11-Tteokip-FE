@@ -1,3 +1,10 @@
+* {
+    margin: 0;
+    padding: 0;
+    font-family: 'Pretendard';
+    list-style: none;
+}
+
 :root {
 
     /*Color*/
@@ -8,55 +15,38 @@
 
     /*Font size*/
     --font-large: 48px;
+    --font-semi-large: 30px;
     --font-medium: 28px;
     --font-regular: 18px;
     --font-small: 16px;
-    --font-micro: 13px;
-
-    font-family: 'Pretendard';
-
-    list-style: none; /*광역으로 먹이고 싶어요*/
-
+    --font-micro: 14px;
 }
 
 /*nav*/
 
 .navbar {
     display: flex;
-    justify-content: space-between;
+    justify-content: space-around;
     align-items: center;
-    padding: 3px;
+    padding: 0 10px;
     color: var(--color-main-gray);
     border: 1px solid var(--color-main-white);
     box-shadow: 0 2px 2px -2px #b4b4b4;
 }
 
-.navbar__logo {
-    padding-left: 150px;
-    float: left;
-}
-
 .logoImg {
-    width: 100px;
-    height:27px;
-    object-fit: cover;
+    width: 110px;
+    height:auto
 }
-
 
 .navbar__menu {
+    margin-left: 20%;
     display: flex;
-    list-style: none;
-    padding-right: 0;
-    margin: 0 150px;
-    float: right;
 }
 
 .navbar__menu__item {
-    float: left;
-    font-size: var(--font-small);
-    padding: 3px 14px;
-    text-decoration: none;
-    color: var(--color-main-black);
+    font-size: var(--font-small); /*micro->small로 변경*/
+    padding: 3px 10px;
 }
 
 /*header_progression*/
@@ -64,16 +54,12 @@
 .header {
     display: flex;
     justify-content: flex-end;
-    margin-right: 150px;
+    padding: 3% 12%;
 }
-
 
 .prog_nav {
     justify-content: space-around;
 }
-
-/*바 형태는 그대로 가져가고 그 안에서 오른쪽 정렬하는게 왜이렇게 힘드냐*/
-
 
 .progitemWrapper {
     display: flex;
@@ -83,18 +69,11 @@
     padding-top: 10px;
     font-size: var(--font-micro);
     color: var(--color-main-gray);
-
-    /*
-    border-bottom: 1px solid var(--color-main-gray);
-    */
-
-    /*여기서 li들을 오른쪽으로 정렬할 수 있을까*/
 }
 
 .progitemText {
     padding: 0 10px;
     list-style: none;
-
 }
 
 #current {
@@ -104,34 +83,37 @@
 
 .bar {
     padding: 0 10px;
-    list-style-type: none;
-
+    list-style: none;
 }
 
 /*main_title*/
 
 .contents {
-    margin: 0 150px;
+    margin: 0 12%;
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    padding-bottom: 10%;
 }
-/*
+
 .summaryTop {
-    border-bottom: 2px solid var(--color-main-black);
-}*/
+    display: flex;
+    flex-direction: column;
+}
 
 .title {
     display: flex;
+
 }
 .d-day, .prdTitle{
     margin: 0;
     font-weight: bold;
+    font-size: var(--font-semi-large);
 }
 
-
 .titleinfo {
-    list-style: none;
     display: flex;
-    flex-direction: row;
-    margin-top: 0;
+    margin: 4px 0;
     padding-left: 0;
     font-weight: normal;
 }
@@ -266,6 +248,7 @@
 
 .sideCalendar {
     margin: 10px;
+
 }
 
 .sideBottom {
@@ -319,7 +302,8 @@ td {
     display: flex;
     text-align: center;
     justify-content: space-between;
-    color: var(--color-main-gray);
+    color: var(--color-main-black);
+    font-weight: bold;
     margin-left: 10px;
 }
 
@@ -387,9 +371,6 @@ td {
         margin: 0;
     }
     .header{
-        margin: 0;
-    }
-    .contents{
         margin: 0;
     }
     .navbar__logo{
