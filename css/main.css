@@ -15,10 +15,6 @@
     --background-color: #fff;
 }
 
-.body {
-    margin: 0;
-}
-
 a {
     text-decoration: none;
     color: var(--text-color);
@@ -52,9 +48,11 @@ a {
 
 .header {
     display: flex;
-    justify-content: space-around;
+    justify-content: space-between;
     align-items: center;
-    padding: 3% 12%;
+    margin: 3% 15%;
+    max-height: 100px;
+    position: relative;
 }
 
 /*검색창*/
@@ -65,8 +63,35 @@ a {
     border-radius: 10px;
     padding: 4px 10px;
     align-items: center;
-    display: flex;
+    flex-direction: column;
     justify-content: space-between;
+    position: absolute;
+    top: 10%;
+    left: 30%;
+    z-index: 999;
+    background-color: var(--background-color);
+}
+
+.search-input {
+    display: flex;
+    align-items: center;
+}
+
+.hide {
+    display: none !important;	/* 사용자가 아무것도 입력하지 않았을 때 검색창을 숨기는 용도*/
+}
+
+.list {
+    display: flex;
+    flex-direction: column;
+    /*display: none;*/
+}
+
+.list li {
+    width: 100%;
+    padding: 5px 10px;
+    color: var(--grey-color);
+    list-style: none;
 }
 
 .find{
@@ -79,6 +104,7 @@ a {
 
 .search-box img{
     width: 28px;
+    height: 28px;
 }
 
 .search p{
@@ -87,6 +113,8 @@ a {
     float: right;
     font-size: 14px;
 }
+
+
 
 /*우측 아이콘*/
 

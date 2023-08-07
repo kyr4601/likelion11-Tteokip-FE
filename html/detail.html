@@ -1,35 +1,32 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="ko">
 <head>
     <meta charset="UTF-8" />
     <meta name="veiwport" content="width=device-width, initial-scale=1.0" />
     <title>Detail</title>
     <link rel="stylesheet" href="../css/detail.css" />
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.0/css/all.min.css">
+    <link rel="stylesheet" type="text/css" href='https://cdn.jsdelivr.net/gh/orioncactus/pretendard/dist/web/static/pretendard.css'>
 
-    <!--
-        <script src="detail.js" defer></script>
-    -->
 </head>
 <body>
 <nav class="navbar">
     <div class="navbar__logo">
-        <img src="../img/Koun_logo.png" alt="logo" class="logoImg" onclick="moveMain()">
+        <img src="../img/logo.png" alt="logo" class="logoImg">
     </div>
     <ul class="navbar__menu">
-        <li><a href="#" class="navbar__menu__item">로그아웃</a></li>
-        <li><a href="#" class="navbar__menu__item">결과확인</a></li>
-        <li><a href="#" class="navbar__menu__item">마이페이지</a></li>
-        <li><a href="#" class="navbar__menu__item">고객센터</a></li>
+        <li class="navbar__menu__item">로그아웃</li>
+        <li class="navbar__menu__item">결과확인</li>
+        <li class="navbar__menu__item">마이페이지</li>
+        <li class="navbar__menu__item">고객센터</li>
     </ul>
 </nav>
-
 <div id="header" class="header">
     <div id="prog_menu" class="prog_nav">
         <ul class="progitemWrapper">
             <li class="progitemText" id="current">01.상세정보</li>
             <li class="bar"> - </li>
-            <li class="progitemText">02.좌석선택</li>
+            <li class="progitemText" >02.좌석선택</li>
             <li class="bar"> - </li>
             <li class="progitemText">03.결제하기</li>
         </ul>
@@ -40,7 +37,7 @@
         <div class="summaryTop">
             <div class="title">
                 <h2 class="d-day">[D-2]</h2>
-                <h2 class="prdTitle">라우브 내한공연 (Lauv in Seoul)</h2>
+                <h2 id="searchResult" class="prdTitle">라우브 내한공연 (Lauv in Seoul)</h2>
             </div>
             <ul class="titleinfo">
                 <li class="dateinfo">2023.08.29</li>
@@ -104,19 +101,9 @@
             </div>
             <div class="productMainBody">
                 <div class="realInfo">상세정보</div>
-                <p>뭔가</p>
-                <p>스크롤을</p>
-                <p>내려도</p>
-                <p>사이드바는</p>
-                <p>내려가지 않았으면</p>
-                <p>좋겠다</p>
-                <p>ㅎㅅㅎ</p>
-                <p>더</p>
-                <p>more</p>
-                <p>more</p>
-                <p>.</p>
-                <p>.</p>
-                <p>.</p>
+                    <p>
+                        하이하이
+                    </p>
             </div>
         </div>
         <div class="productSide">
@@ -131,33 +118,28 @@
                     <div class="sideContent">
                         <div class="sideCalendar">
                             <div class="datepicker"></div>
-                            <div class="datepicker-inine">
-                                <div id='calendar-container'>
-                                    <div class="calendar">
-                                        <table id="calendar">
-                                            <tr class="weeklist">
-                                                <td class="premonth"><label onclick="prevCalendar()"><</label></td>
-                                                <td id="tbCalendarYM" class="thismonth" colspan="3">
-                                                    yyyy. mm</td>
-                                                <td class="nextmonth"><label onclick="nextCalendar()">>
+                                <div class="calendar">
+                                    <table id="calendar">
+                                        <tr class="weeklist">
+                                            <td class="premonth"><label onclick="prevCalendar()"><</label></td>
+                                            <td id="tbCalendarYM" class="thismonth" colspan="3">
+                                                yyyy. mm</td>
+                                            <td class="nextmonth"><label onclick="nextCalendar()">>
 
-                                                </label></td>
-                                            </tr>
-                                            <tr class="week">
-                                                <td class="day">일</td>
-                                                <td class="day">월</td>
-                                                <td class="day">화</td>
-                                                <td class="day">수</td>
-                                                <td class="day">목</td>
-                                                <td class="day">금</td>
-                                                <td class="day">토</td>
-                                            </tr>
+                                            </label></td>
+                                        </tr>
+                                        <tr class="week">
+                                            <td class="day">일</td>
+                                            <td class="day">월</td>
+                                            <td class="day">화</td>
+                                            <td class="day">수</td>
+                                            <td class="day">목</td>
+                                            <td class="day">금</td>
+                                            <td class="day">토</td>
+                                        </tr>
 
-                                        </table>
-                                    </div>
+                                    </table>
                                 </div>
-
-                            </div>
                         </div>
                     </div>
                     <div class="sideBottom">
@@ -176,13 +158,15 @@
                 </div>
             </div>
             <div class="sideBtnWrap">
-                <button class="reserve_btn">응모하기</button>
+                <button id="goRaffle" class="reserve_btn">응모하기</button>
             </div>
         </div>
     </div>
 </div>
 
 <script src="../js/detail.js"></script>
+<script src="../js/searchresult.js"></script>
+
 
 
 </body>
