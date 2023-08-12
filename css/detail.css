@@ -44,6 +44,12 @@
     display: flex;
 }
 
+.navbar__menu li:hover {
+    color: var(--color-main-black);
+    font-weight: bold;
+    cursor: pointer;
+}
+
 .navbar__menu__item {
     font-size: var(--font-small); /*micro->small로 변경*/
     padding: 3px 10px;
@@ -54,7 +60,7 @@
 .header {
     display: flex;
     justify-content: flex-end;
-    padding: 3% 12%;
+    padding: 0 12%;
 }
 
 .prog_nav {
@@ -106,10 +112,11 @@
 
 }
 .d-day, .prdTitle{
-    margin: 0;
+    margin: 0 5px;
     font-weight: bold;
     font-size: var(--font-semi-large);
 }
+
 
 .titleinfo {
     display: flex;
@@ -204,16 +211,27 @@
 
 
 .infoPriceList {
+    display: grid;
     padding-left: 0;
-    margin: 10px;
+    margin: 10px 0 10px 10px;
     white-space: nowrap;
 
 }
 
 .infoPriceItem {
+    display: flex;
+    justify-content: space-between;
     list-style: none;
     margin-bottom: 5px;
+    width: 150px;
+}
 
+.name {
+    text-align: left;
+}
+
+.price {
+    text-align: right;
 }
 
 /*상세정보*/
@@ -248,7 +266,6 @@
 
 .sideCalendar {
     margin: 10px;
-
 }
 
 .sideBottom {
@@ -312,6 +329,11 @@ td {
     vertical-align: middle;
 }
 
+.click {
+    cursor: pointer;
+    font-weight: bold;
+}
+
 .dateCalandar {
     align-content: center;
     justify-content: center;
@@ -342,6 +364,12 @@ td {
     /*이 상태는 선택 전, 선택하면 응모하기 버튼이랑 똑같은 디자인*/
 }
 
+.timeTableBtn:hover {
+    cursor: pointer;
+    background-color: var(--color-main-green);
+    color: var(--color-main-white);
+}
+
 /*side_payButton*/
 
 .sideBottomHeader {
@@ -361,6 +389,11 @@ td {
     border:none;
     border-radius:5px;
     padding: 10px 125px;
+}
+
+.reserve_btn:hover {
+    cursor: pointer;
+    box-shadow: 0 0 2px 0 var(--color-main-gray);
 }
 
 /*반응형-nav오른쪽 깨지는 menu 수정*/

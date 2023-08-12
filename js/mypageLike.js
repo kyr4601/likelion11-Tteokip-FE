@@ -87,9 +87,10 @@ const setPageOf_liked = (pageNumber) => {
         currentInform.id = "currentInform";
         var resultBtn = document.createElement("button");
         resultBtn.className = "result_button";
+        resultBtn.classList.add('result_button')
+
         var resultBtnText = document.createTextNode('결과');
         resultBtn.appendChild(resultBtnText)
-        resultBtn.classList.add('result_button')
         var dDay = document.createElement("p");
         dDay.className = "dday";
         dDay.id = "d_day";
@@ -110,7 +111,6 @@ const setPageOf_liked = (pageNumber) => {
         var applyItemBox = document.createElement("div");
         applyItemBox.className = "apply_itemBox";
         var applyButton = document.createElement("button");
-        applyButton.className = "applyBtn";
         applyButton.textContent = "응모";
 
         if (data[i - 1].dDay == "[D-Day]") {

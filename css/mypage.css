@@ -258,13 +258,19 @@
 }
 
 
-.cancelBtn, .reservBtn, .resultBox{
+.cancelBtn, .reservBtn, .result_button{
     padding: 3px 15px;
-    border: 1px solid white;
+    border: 1px solid var(--color-main-green);
     border-radius: 5px;
     background-color: #26ddb1;
     color: white;
 }
+
+.cancelBtn:hover, .reservBtn:hover, .result_button:hover {
+    cursor: pointer;
+    box-shadow: 0 0 2px 0 var(--color-main-gray);
+}
+
 
 .numberItemBox {
     margin: 30px 40px;
