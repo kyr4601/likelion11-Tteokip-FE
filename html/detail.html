@@ -7,17 +7,19 @@
     <link rel="stylesheet" href="../css/detail.css" />
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.0/css/all.min.css">
     <link rel="stylesheet" type="text/css" href='https://cdn.jsdelivr.net/gh/orioncactus/pretendard/dist/web/static/pretendard.css'>
+    <script src="../js/detaildata.js"></script>
+
 
 </head>
 <body>
 <nav class="navbar">
     <div class="navbar__logo">
-        <img src="../img/logo.png" alt="logo" class="logoImg">
+        <img src="../img/logo.png" alt="logo" class="logoImg" onclick="moveMain()">
     </div>
     <ul class="navbar__menu">
         <li class="navbar__menu__item">로그아웃</li>
-        <li class="navbar__menu__item">결과확인</li>
-        <li class="navbar__menu__item">마이페이지</li>
+        <li class="navbar__menu__item" onclick="moveMypage()">결과확인</li>
+        <li class="navbar__menu__item" onclick="moveMypage()">마이페이지</li>
         <li class="navbar__menu__item">고객센터</li>
     </ul>
 </nav>
@@ -33,18 +35,16 @@
     </div>
 </div>
 <div class="contents">
-    <div class="title">
-        <div class="summaryTop">
-            <div class="title">
-                <h2 class="d-day">[D-2]</h2>
-                <h2 id="searchResult" class="prdTitle">라우브 내한공연 (Lauv in Seoul)</h2>
-            </div>
-            <ul class="titleinfo">
-                <li class="dateinfo">2023.08.29</li>
-                <li class="section">|</li>
-                <li class="placeinfo">KSPO DOME(올림픽체조경기장)</li>
-            </ul>
+    <div class="summaryTop">
+        <div class="title">
+            <h2 class="d-day">[D-2]</h2>
+            <h2 id="searchResult" class="prdTitle">라우브 내한공연 (Lauv in Seoul)</h2>
         </div>
+        <ul class="titleinfo">
+            <li class="dateinfo">2023.08.29</li>
+            <li class="section">|</li>
+            <li class="placeinfo">KSPO DOME(올림픽체조경기장)</li>
+        </ul>
     </div>
     <div class="productWrapper">
         <div class="productMain">
@@ -52,47 +52,55 @@
             <div class="productMainTop">
                 <div class="posterBox">
                     <img class="posterBoxImage" src="../img/Poster_Lauv.png" alt="라우브 내한공연 (Lauv in Seoul)">
-                    <div id="likeBtn" class="circle-button">
+<!--                    <div id="likeBtn" class="circle-button">
                         <i id="emptyHeart" class="fa-regular fa-heart fa-lg" style="color: #ffffff; display: flex;"></i>
                         <i id="fillHeart" class="fa-solid fa-heart fa-lg" style="color: #ffffff; display: none;"></i>
-                    </div>
+                    </div>-->
                 </div>
                 <div class="information">
                     <ul class="info">
                         <li class="infoItem">
                             <p class="infoLabel">관람연령</p>
-                            <p class="infoText">만 12세 이상</p>
+                            <p class="infoText" id="veiwing_age">만 12세 이상</p>
                         </li>
                         <li class="infoItem">
                             <p class="infoLabel">관람시간</p>
-                            <p class="infoText">총 80분</p>
+                            <p class="infoText" id="veiwing_time">총 80분</p>
                         </li>
                         <li class="infoItem">
                             <p class="infoLabel">출연</p>
-                            <p class="infoText">라우브</p>
+                            <p class="infoText" id="concertPerformer">라우브</p>
                         </li>
                         <li class="infoItem">
                             <p class="infoLabel">가격</p>
                             <ul class="infoPriceList">
                                 <li class="infoPriceItem">
-                                    <span class="name">P석</span>
-                                    <span class="price">154,000원</span>
+                                    <span class="name" id="Seat1">P석</span>
+                                    <span class="price" id="Price1">154,000원</span>
                                 </li>
                                 <li class="infoPriceItem">
-                                    <span class="name">P석</span>
-                                    <span class="price">154,000원</span>
+                                    <span class="name" id="Seat2">P석</span>
+                                    <span class="price" id="Price2">154,000원</span>
                                 </li>
                                 <li class="infoPriceItem">
-                                    <span class="name">스탠딩석</span>
-                                    <span class="price">154,000원</span>
+                                    <span class="name" id="Seat3">스탠딩석</span>
+                                    <span class="price" id="Price3">154,000원</span>
                                 </li>
                                 <li class="infoPriceItem">
-                                    <span class="name">R석</span>
-                                    <span class="price">154,000원</span>
+                                    <span class="name" id="Seat4">R석</span>
+                                    <span class="price" id="Price4">154,000원</span>
                                 </li>
                                 <li class="infoPriceItem">
-                                    <span class="name">S석</span>
-                                    <span class="price">154,000원</span>
+                                    <span class="name" id="Seat5">S석</span>
+                                    <span class="price" id="Price5">154,000원</span>
+                                </li>
+                                <li class="infoPriceItem">
+                                    <span class="name" id="Seat6">석</span>
+                                    <span class="price" id="Price6">154,000원</span>
+                                </li>
+                                <li class="infoPriceItem">
+                                    <span class="name" id="Seat7">석</span>
+                                    <span class="price" id="Price7">154,000원</span>
                                 </li>
                             </ul>
                         </li>
@@ -121,10 +129,10 @@
                                 <div class="calendar">
                                     <table id="calendar">
                                         <tr class="weeklist">
-                                            <td class="premonth"><label onclick="prevCalendar()"><</label></td>
+                                            <td class="premonth"><label class="click" onclick="prevCalendar()"><</label></td>
                                             <td id="tbCalendarYM" class="thismonth" colspan="3">
                                                 yyyy. mm</td>
-                                            <td class="nextmonth"><label onclick="nextCalendar()">>
+                                            <td class="nextmonth"><label class="click"  onclick="nextCalendar()">>
 
                                             </label></td>
                                         </tr>
@@ -158,7 +166,7 @@
                 </div>
             </div>
             <div class="sideBtnWrap">
-                <button id="goRaffle" class="reserve_btn">응모하기</button>
+                <button id="goRaffle" class="reserve_btn" onclick="moveRaffle()">응모하기</button>
             </div>
         </div>
     </div>

@@ -1,3 +1,113 @@
+/*정보 변수화*/
+
+
+let dDay = document.querySelector('.d-day');
+dDay.innerText = detaildata[0].dDay;
+
+let realtitle = document.querySelector('.prdTitle');
+realtitle.innerText = detaildata[0].titles;
+
+let dateinfo = document.querySelector('.dateinfo');
+dateinfo.innerText = detaildata[0].concertdate;
+
+let placeinfo = document.querySelector('.placeinfo');
+placeinfo.innerText = detaildata[0].concertplace;
+
+
+let infotext1 = document.getElementById('veiwing_age');
+infotext1.innerText = detaildata[0].age;
+
+let infotext2 = document.getElementById('veiwing_time');
+infotext2.innerText = detaildata[0].veiwingTime;
+
+let infotext3 = document.getElementById('concertPerformer');
+infotext3.innerText = detaildata[0].performer;
+
+
+let seat1 = document.getElementById('Seat1');
+seat1.innerText = detaildata[1].seat1;
+
+let price1 = document.getElementById('Price1');
+price1.innerText = detaildata[1].price1;
+
+let seat2 = document.getElementById('Seat2');
+seat2.innerText = detaildata[1].seat1;
+
+let price2 = document.getElementById('Price2');
+price2.innerText = detaildata[1].price2;
+
+let seat3 = document.getElementById('Seat3');
+seat3.innerText = detaildata[1].seat3;
+
+let price3 = document.getElementById('Price1');
+price3.innerText = detaildata[1].price1;
+
+let seat4 = document.getElementById('Seat4');
+seat4.innerText = detaildata[1].seat4;
+
+let price4 = document.getElementById('Price4');
+price4.innerText = detaildata[1].price4;
+
+let seat5 = document.getElementById('Seat5');
+seat5.innerText = detaildata[1].seat1;
+
+let price5 = document.getElementById('Price5');
+price5.innerText = detaildata[1].price1;
+
+let seat6 = document.getElementById('Seat6');
+seat6.innerText = detaildata[1].seat6;
+
+let price6 = document.getElementById('Price6');
+price6.innerText = detaildata[1].price6;
+
+let seat7 = document.getElementById('Seat7');
+seat7.innerText = detaildata[1].seat7;
+
+let price7 = document.getElementById('Price7');
+price7.innerText = detaildata[1].price7;
+
+
+/*
+
+for (let i = 1; i <= 7; i++) {
+
+    infopriceitem = document.createElement('li');
+
+    var name = document.createElement("span");
+    name.className = 'name' + `${i}`;
+    name.id = "Seat" + `${i}`;
+    name.innerText = detaildata[1].seat`${i}`;
+
+    var price = document.createElement("span");
+    price.className = 'price' + `${i}`;
+    price.id = "Price" + `${i}`;
+    price.innerText = detaildata[1].price`${i}`;
+
+    infopriceitem.appendChild(name, price);
+    infopricelist.appendChild(infopriceitem);
+
+}
+
+
+*/
+
+
+/*하이퍼링크*/
+
+function moveRaffle() {
+    location.href = "../html/raffle.html";
+}
+
+function moveMypage() {
+    location.href = "../html/mypage.html";
+}
+
+function moveMain() {
+    location.href = "../html/main.html"
+}
+
+/*calendar*/
+
 var today = new Date();//오늘 날짜//내 컴퓨터 로컬을 기준으로 today에 Date 객체를 넣어줌
 var date = new Date();//today의 Date를 세어주는 역할
 
@@ -23,20 +133,14 @@ function buildCalendar(){
     //이번 달의 첫째 날,
     var lastDate = new Date(today.getFullYear(),today.getMonth()+1,0);
     //이번 달의 마지막 날
-    //대로 된 다음달 시작일(1일)은 못가져오고 1 전인 0, 즉 전달 마지막일 을 가져오게 된다
     var tbCalendar = document.getElementById("calendar");
-    //날짜를 찍을 테이블 변수 만듬, 일 까지 다 찍힘
     var tbCalendarYM = document.getElementById("tbCalendarYM");
-    //테이블에 정확한 날짜 찍는 변수
     tbCalendarYM.innerHTML = today.getFullYear() + ". " + (today.getMonth() + 1) ;
 
-    /*while은 이번달이 끝나면 다음달로 넘겨주는 역할*/
     while (tbCalendar.rows.length > 2) {
         //열을 지워줌
         //기본 열 크기는 body 부분에서 2로 고정되어 있다.
         tbCalendar.deleteRow(tbCalendar.rows.length-1);
-        //테이블의 tr 갯수 만큼의 열 묶음은 -1칸 해줘야지
-        //30일 이후로 담을달에 순서대로 열이 계속 이어진다.
     }
     let row = null;
     row = tbCalendar.insertRow();
@@ -68,10 +172,8 @@ function buildCalendar(){
 
         /*토요일 구하기*/
         if (cnt%7 == 0){
-            //월화수목금토일을 7로 나눴을때 나머지가 0이면 cnt가 7번째에 위치함을 의미한다
             cell.innerHTML = "<font color=skyblue>" + i
             row = calendar.insertRow();
-            //토요일 다음에 올 셀을 추가
         }
         /*지정된 날짜에 색 칠하기*/
         if (today.getFullYear() == date.getFullYear()
@@ -84,14 +186,10 @@ function buildCalendar(){
         }
     }
 }
+/*
 
-/*logo클릭->메인으로 이동*/
 
-function moveMain() {
-    location.href = "../html/main.html"
-}
-
-/*찜버튼-메인css에서 가져옴*/
+/!*찜버튼-메인css에서 가져옴*!/
 
 
 const likeBtn = document.getElementById('likeBtn');
@@ -108,3 +206,4 @@ likeBtn.addEventListener("click", function(){
     }
 
 })
+*/
