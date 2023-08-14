@@ -14,7 +14,7 @@ function showSlides() {
     }
     slides[slideIndex - 1].style.display = "block";
 
-    setTimeout(showSlides, 2000); // 2초마다 이미지 체인지
+    setTimeout(showSlides, 3000); // 2초마다 이미지 체인지
 }
 
 /*cards*/
@@ -102,18 +102,20 @@ wrapper.addEventListener("mouseleave", autoPlay);
 
 /*like*/
 
-const likeBtn = document.getElementById('likeBtn');
-const empty = document.getElementById('emptyHeart');
-const fill = document.getElementById('fillHeart');
+// const likeBtn = document.getElementById('likeBtn');
+// const empty = document.getElementById('emptyHeart');
+// const fill = document.getElementById('fillHeart');
 
-likeBtn.addEventListener("click", function(){
-    if(fill.style.display == "flex"){
-        fill.style.display = "none";
-        empty.style.display = "flex";
-    }else{
-        fill.style.display = "flex";
-        empty.style.display = "none";
-    }
+// likeBtn.addEventListener("click", function(){
+//     if(fill.style.display == "flex"){
+//         fill.style.display = "none";
+//         empty.style.display = "flex";
+//     }else{
+//         fill.style.display = "flex";
+//         empty.style.display = "none";
+//     }
+//
+// })
 
-})
+
 
