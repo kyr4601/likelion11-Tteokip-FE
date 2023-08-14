@@ -9,7 +9,6 @@ const checkInput = () => {
     timer(beforeInput);
 }
 
-
 const timer = (beforeInput) => {
     setTimeout(() => {
 
@@ -50,8 +49,6 @@ const fillSearch = (suggestArr) => {
             window.location.href = 'detail.html?search=' + encodeURIComponent(searchTerm);
         })
     })
-
 }
 
 checkInput();
-
