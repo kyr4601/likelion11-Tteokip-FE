@@ -46,14 +46,20 @@ const setPageOf = (pageNumber) => {
         // info_itemBox 요소 셍성
         var infoItemBox = document.createElement("div");
         infoItemBox.className = "info_itemBox";
-        infoItemBox.onclick = moveDetail;
+
+        infoItemBox.addEventListener('click', function (event) {
+            boxinfo = event.target.closest('h3').textContent;
+            console.log(boxinfo);
+            window.location.href = 'detail.html?search=' + encodeURIComponent(boxinfo);
+        });
+
         var img = document.createElement("img");
         img.src = "../img/Poster_Lauv.png";
         img.alt = "posterImg";
         img.className = "posterImg";
         var infoItemText = document.createElement("div");
         infoItemText.className = "info_itemText";
-        var infoTitle = document.createElement("p");
+        var infoTitle = document.createElement("h3");
         infoTitle.className = "info_title";
         infoTitle.id = "concertname";
         infoTitle.textContent = data[i - 1].title;
@@ -92,9 +98,12 @@ const setPageOf = (pageNumber) => {
         var resultBtnText = document.createTextNode('확인');
         resultBtn.appendChild(resultBtnText);
         resultBtn.classList.add('result_button');
-/*
-        resultBtn.onclick = moveResult();
-*/
+
+        resultBtn.addEventListener('click', function (event) {
+            resultTerm = event.target.innerText;
+            window.location.href = 'resultPopup.html?result=' + encodeURIComponent(resultTerm);
+        });
+
         var dDay = document.createElement("p");
         dDay.className = "dday";
         dDay.id = "d_day";

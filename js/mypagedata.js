@@ -7,3 +7,5 @@ const data = [
     { reservdate: '2023.08.09' ,title: '라우브 내한공연', concertdate: '2023.08.29(토) 오후 6시', concertcount: '2매', dDay: '[D-2]',postNumber: 6},
     { reservdate: '2023.08.09' ,title: '라우브 내한공연', concertdate: '2023.08.29(토) 오후 6시', concertcount: '2매', dDay: '[D-2]',postNumber: 7},
 ];
+
+const totaldate = concertdate.split(' ');

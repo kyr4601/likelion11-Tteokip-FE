@@ -1,8 +1,10 @@
 let iddata = "이솔";
 let maildata = "ek******@n****.com";
+
 let name = document.getElementById('nameid');
 let nameinfo = document.getElementById('nameinfo');
 let mailinfo = document.getElementById('mailinfo')
+
 name.innerText = iddata;
 nameinfo.innerText = iddata;
 mailinfo.innerText = maildata;
@@ -25,13 +27,11 @@ function moveMain() {
 function moveMypage() {
     location.href = "../html/mypage.html";
 }
-function moveDetail() {
-    location.href = "../html/detail.html";
-}
-function moveRaffle() {
-    location.href = "../html/raffle.html";
-}
 
 function moveResult() {
     location.href = "../html/resultPopup.html"
 }
+
+
+
+

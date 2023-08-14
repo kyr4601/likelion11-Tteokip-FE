@@ -76,3 +76,4 @@ function renderResult() {
 
 // 페이지가 로드되었을 때 검색 결과를 렌더링
 window.addEventListener('DOMContentLoaded', renderResult);
+

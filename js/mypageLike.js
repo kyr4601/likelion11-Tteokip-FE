@@ -44,27 +44,36 @@ const setPageOf_liked = (pageNumber) => {
         // info_itemBox 요소 생성
         var infoItemBox = document.createElement("div");
         infoItemBox.className = "info_itemBox";
-        infoItemBox.onclick = moveDetail;
+
+
         var img = document.createElement("img");
         img.src = "../img/Poster_Lauv.png";
         img.alt = "posterImg";
         img.className = "posterImg";
         var infoItemText = document.createElement("div");
         infoItemText.className = "info_itemText";
-        var infoTitle = document.createElement("p");
+        var infoTitle = document.createElement("h3");
         infoTitle.className = "info_title";
         infoTitle.id = "concertname";
         infoTitle.textContent = data[i - 1].title;
-        var infoDetail = document.createElement("div");
+
+        infoItemBox.addEventListener('click', function (event) {
+            boxinfo = event.target.closest('h3').textContent;
+            console.log(boxinfo);
+            window.location.href = 'detail.html?inbox=' + encodeURIComponent(boxinfo);
+        });
+
+
+        let infoDetail = document.createElement("div");
         infoDetail.className = "info_detail";
-        var infoTime = document.createElement("p");
+        let infoTime = document.createElement("p");
         infoTime.className = "info_time";
         infoTime.id = "concertinform";
         infoTime.textContent = data[i - 1].concertdate;
-        var infoBar = document.createElement("p");
+        let infoBar = document.createElement("p");
         infoBar.className = "info_bar";
         infoBar.textContent = "|";
-        var infoCount = document.createElement("p");
+        let infoCount = document.createElement("p");
         infoCount.className = "info_count";
         infoCount.id = "concertcount";
         infoCount.textContent = data[i - 1].concertcount;
@@ -80,25 +89,24 @@ const setPageOf_liked = (pageNumber) => {
         //info_itemBox를 itemBox에 추가
         itemBox.appendChild(infoItemBox);
         // current_itemBox 요소 생성
-        var currentItemBox = document.createElement("div");
+        let currentItemBox = document.createElement("div");
         currentItemBox.className = "current_itemBox";
-        var currentInform = document.createElement("p");
+        let currentInform = document.createElement("p");
         currentInform.className = "current";
         currentInform.id = "currentInform";
-        var resultBtn = document.createElement("button");
+        let resultBtn = document.createElement("button");
         resultBtn.className = "result_button";
         resultBtn.classList.add('result_button')
 
-        var resultBtnText = document.createTextNode('결과');
+        let resultBtnText = document.createTextNode('결과');
         resultBtn.appendChild(resultBtnText)
-        var dDay = document.createElement("p");
+        let dDay = document.createElement("p");
         dDay.className = "dday";
         dDay.id = "d_day";
         dDay.textContent = data[i - 1].dDay;
         if (data[i - 1].dDay == '[D-Day]') {
             currentInform.textContent = "응모종료";
             currentItemBox.appendChild(currentInform);
-
         } else {
             currentInform.textContent = "응모중";
             currentItemBox.appendChild(currentInform);
@@ -107,11 +115,14 @@ const setPageOf_liked = (pageNumber) => {
         }
         //current_itemBox를 itemBox에 추가
         itemBox.appendChild(currentItemBox);
+
         // cancel_itemBox 요소 생성
-        var applyItemBox = document.createElement("div");
+        let applyItemBox = document.createElement("div");
         applyItemBox.className = "apply_itemBox";
-        var applyButton = document.createElement("button");
+        let applyButton = document.createElement("button");
+        applyButton.className = "applybtn";
         applyButton.textContent = "응모";
+
 
         if (data[i - 1].dDay == "[D-Day]") {
             applyButton.classList.add('end_button');
@@ -121,15 +132,29 @@ const setPageOf_liked = (pageNumber) => {
 
         } else {
             applyButton.classList.add('result_button');
-            applyButton.addEventListener('click', moveRaffle);
+            //applyButton.addEventListener('click', goraffle);
 
         }
+
+
+
+
+
         applyItemBox.appendChild(applyButton);
         itemBox.appendChild(applyItemBox);
         //다 완성된 itemBox 요소를 ul에 추가
         parentElement2.appendChild(itemBox);
         list2.append(parentElement2);
+
+        applyButton.addEventListener('click', function (event) {
+            let closestBox = event.target.closest('.itemBox');
+            let title = closestBox.querySelector('h3').textContent;
+            console.log(title)
+            window.location.href = "raffle.html?raffle=" + encodeURIComponent(title);
+        });
     }}
+
+
 
 /*페이지 번호 버튼 클릭 이벤트*/
 
@@ -140,7 +165,6 @@ pageNumberBut2.forEach((numberButton) => {
         setPageOf_liked(+e.target.innerHTML);
     });
 });
-
 
 
 
