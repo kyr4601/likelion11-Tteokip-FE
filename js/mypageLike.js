@@ -132,7 +132,6 @@ const setPageOf_liked = (pageNumber) => {
 
         } else {
             applyButton.classList.add('result_button');
-            //applyButton.addEventListener('click', goraffle);
 
         }
 
@@ -185,7 +184,7 @@ setPageButtons2();
 setPageOf_liked(likedPage);
 
 prevButton2.addEventListener('click', () => {
-    if (likedPage < getTotalPageCount()) {
+    if (likedPage > 1) {
         likedPage-= 1;
         setPageOf_liked(likedPage);
         moveSelectedPageHighlight2();

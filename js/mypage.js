@@ -33,5 +33,20 @@ function moveResult() {
 }
 
 
+//let mypagedata =[];
 
 
+// window.onload = () => {
+//     getmypage();
+// }
+
+/*검색 - 콘서트 제목 모두 가져오기
+const getmypage = () => {
+    axios.get('/api/sections/item/{itemId}?itemId=이름??')
+        .then(response =>{
+            console.log(response.data);
+            mypagedata = response.data;
+        }).catch(function (error) {
+            console.log(error);
+        })
+}*/
