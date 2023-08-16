@@ -1,3 +1,5 @@
+
+
 /*정보 변수화*/
 
 
@@ -44,7 +46,6 @@ goraffle.addEventListener("click", function (event){
     window.location.href = 'raffle.html?raffle=' + encodeURIComponent(applybtn);
 })
 
-
 function moveMypage() {
     location.href = "../html/mypage.html";
 }
@@ -55,15 +56,47 @@ function moveMain() {
 
 /*calendar*/
 
-let today = new Date();//오늘 날짜//내 컴퓨터 로컬을 기준으로 today에 Date 객체를 넣어줌
-let date = new Date();//today의 Date를 세어주는 역할
+
+/*해야할 것
+*
+* 1. 달력 data날짜로 변경 ✔
+* 2. API 연결
+* */
+
+
+//var today = new Date();//오늘 날짜//내 컴퓨터 로컬을 기준으로 today에 Date 객체를 넣어줌
+
+let totaldate = detaildata[0].concertdate;
+splitdate = totaldate.split('.');
+console.log(splitdate[1])
+
+let year = splitdate[0];
+/*
+Number(year);
+console.log(typeof year);
+*/
+
+let month = splitdate[1] - 1;
+if (month[0] == '0') {
+    month = month[1];
+}
+
+let day = splitdate[2][0] + splitdate[2][1];
+if (day[0] == '0') {
+    day = day[1];
+}
+
+console.log(year); //2024
+console.log(month) //10
+console.log(day) //9
+
+let today = new Date(year, month, day);
+let date = new Date(year, month, day); //today의 Date를 세어주는 역할
 
 window.onload = function(){
     buildCalendar();
 }
 function prevCalendar() {
-    // 이전 달을 today에 값을 저장하고 달력에 today를 넣어줌
-    //getMonth()는 현재 달을 받아 오므로 이전달을 출력하려면 -1을 해줘야함
     today = new Date(today.getFullYear(), today.getMonth() - 1, today.getDate());
     buildCalendar();
 }
@@ -97,20 +130,18 @@ function buildCalendar(){
     let cnt = 0;// count, 셀의 갯수를 세어주는 역할
     // 1일이 시작되는 칸을 맞추어 줌
 
-    let anyDate = 27;
 
     for (i=0; i<doMonth.getDay(); i++) {
-        /*이번달의 day만큼 돌림*/
         cell = row.insertCell();//열 한칸한칸 계속 만들어주는 역할
         cell.id = "disabled";
-        cnt = cnt + 1;//열의 갯수를 계속 다음으로 위치하게 해주는 역할
+        cnt = cnt + 1;
     }
     /*달력 출력*/
     for (i=1; i<=lastDate.getDate(); i++) {
         cell = row.insertCell();//열 한칸한칸 계속 만들어주는 역할
         cell.innerHTML = i;
         cell.className = "ableDate";
-        cnt = cnt + 1;//열의 갯수를 계속 다음으로 위치하게 해주는 역할
+        cnt = cnt + 1;
 
         /*일요일 구하기*/
         if (cnt % 7 == 1) {
@@ -127,10 +158,9 @@ function buildCalendar(){
 
         if (today.getFullYear() == date.getFullYear()
             && today.getMonth() == date.getMonth()
-            && i == anyDate) {
+            && i == today.getDate()) {
 
 
-            console.log(today.getMonth())
             cell.bgColor = "#26ddb1";//셀의 배경색
             cell.style.border = "1px solid #26ddb1";
             cell.style.borderRadius = "60px" ;

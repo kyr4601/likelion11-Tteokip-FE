@@ -293,7 +293,6 @@ tbody {
     width: 320px;
     height: 350px;
     justify-content: flex-start;
-    margin-left: 20px;
 }
 
 tr {
@@ -301,13 +300,15 @@ tr {
     justify-content: flex-start;
     align-content: center;
     vertical-align: center;
+    padding-left: 17px;
+
 }
 
 td {
     display: flex;
     flex-wrap: wrap;
-    width: 42px;
-    height: 42px;
+    width: 40px;
+    height: 40px;
     font-size: 15px;
     justify-content: center;
     align-content: center;
@@ -321,7 +322,6 @@ td {
     justify-content: space-between;
     color: var(--color-main-black);
     font-weight: bold;
-    margin-left: 10px;
 }
 
 .thismonth {

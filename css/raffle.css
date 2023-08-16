@@ -44,6 +44,12 @@
     display: flex;
 }
 
+.navbar__menu li:hover {
+    color: var(--color-main-black);
+    font-weight: bold;
+    cursor: pointer;
+}
+
 .navbar__menu__item {
     font-size: var(--font-small); /*micro->small로 변경*/
     padding: 3px 10px;
