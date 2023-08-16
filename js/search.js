@@ -1,23 +1,39 @@
 const ul = document.querySelector(".rel-list");
 const searchInput = document.querySelector("#search");
 const relContainer = document.querySelector(".list");
-//let titledata =[];
+let titledata =[];
 
+const baseUrl = "http://ec2-3-38-100-226.ap-northeast-2.compute.amazonaws.com:8080";
+window.onload = () => {
+     gettitle();
+}
 
-// window.onload = () => {
-//     gettitle();
+// const gettitle = () => {
+//     axios.get(baseUrl + '/api/raffles/users', {
+//         params: {
+//             userId : 1
+//         }
+//     }).then((response) => {
+//             console.log(response);
+//             //titledata = response.data;
+//         })
+//         .catch((error) => {
+//             console.log(error);
+//         })
 // }
 
-/*검색 - 콘서트 제목 모두 가져오기
+
+//검색 - 콘서트 제목 모두 가져오기
 const gettitle = () => {
-    axios.get('')
-        .then(response =>{
-            console.log(response.data);
-            titledata = response.data;
-        }).catch(function (error) {
+    axios.get(baseUrl + '/api/items/all')
+        .then((response) => {
+            console.log(response);
+            //titledata = response.data;
+        })
+        .catch((error) => {
             console.log(error);
         })
-}*/
+}
 
 const checkInput = () => {
     const beforeInput = searchInput.value;
