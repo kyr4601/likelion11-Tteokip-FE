@@ -5,6 +5,8 @@
 4. 결제하기 버튼 -> post - item name(콘서트 제목), 구역, 티켓가격, 매수
  */
 
+const baseUrl = "http://ec2-3-38-100-226.ap-northeast-2.compute.amazonaws.com:8080";
+
 const paybox = document.getElementById("pay");
 const areaElements = document.querySelectorAll('.area-a, .area-b, .area-c, .area-d, .area-e, .area-f, .area-g');
 const quantity = document.getElementById("ticketNum");
@@ -52,12 +54,25 @@ const paybtn = document.getElementById("payBtn");
 
 paybtn.addEventListener("click", function (){
     //외않되는대
+    /*
     if(paybox.style.display === "none"){
         alert('구역을 선택해주세요.')
     }else{
         alert('응모가 완료되었습니다.' + '\n' + 'Koun이 당신의 행운을 빕니다.');
         window.location.href = "main.html";
-    }
+    }*/
+    axios.post(baseUrl + "/api/raffles", {
+        "raffleCount": quantity.innerText,
+        "raffleDrawDate": "2023-08-04 15:30",
+        "userId": 1,
+        "itemId": 2,
+        "sectionId": 2
+    }).then(function (response) {
+        console.log(quantity.innerText);
+        alert('응모가 완료되었습니다.' + '\n' + 'Koun이 당신의 행운을 빕니다.');
+    }).catch(function (error) {
+        console.log("error")
+    })
 })
 
 

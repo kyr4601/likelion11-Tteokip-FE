@@ -118,4 +118,9 @@ wrapper.addEventListener("mouseleave", autoPlay);
 // })
 
 
+const mypageicon = document.querySelector('.goMyPage');
+
+mypageicon.addEventListener("click",function (){
+    window.location.href = 'mypage.html';
+})
 
