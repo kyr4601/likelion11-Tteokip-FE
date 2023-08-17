@@ -1,39 +1,9 @@
 const ul = document.querySelector(".rel-list");
 const searchInput = document.querySelector("#search");
 const relContainer = document.querySelector(".list");
-let titledata =[];
 
-const baseUrl = "http://ec2-3-38-100-226.ap-northeast-2.compute.amazonaws.com:8080";
-window.onload = () => {
-     gettitle();
-}
+const baseUrl = "http://ec2-3-34-90-9.ap-northeast-2.compute.amazonaws.com:8080";
 
-// const gettitle = () => {
-//     axios.get(baseUrl + '/api/raffles/users', {
-//         params: {
-//             userId : 1
-//         }
-//     }).then((response) => {
-//             console.log(response);
-//             //titledata = response.data;
-//         })
-//         .catch((error) => {
-//             console.log(error);
-//         })
-// }
-
-
-//검색 - 콘서트 제목 모두 가져오기
-const gettitle = () => {
-    axios.get(baseUrl + '/api/items/all')
-        .then((response) => {
-            console.log(response);
-            //titledata = response.data;
-        })
-        .catch((error) => {
-            console.log(error);
-        })
-}
 
 const checkInput = () => {
     const beforeInput = searchInput.value;
@@ -63,11 +33,17 @@ const timer = (beforeInput) => {
 
 
 const loadData = (input) => {
-    let data = ["라우브 내한공연", "임영웅 전국투어", "싸이 흠뻑쇼 인천", "싸이 흠뻑쇼 서울", "싸이 흠뻑쇼 부산"];
-    const filteredData = data.filter(item => item.includes(input));
-    //실제 데이터 통신 후 대체코드
-    //const filteredData = titledata.filter(item => item.includes(input));
-    fillSearch(filteredData);
+    axios.get(baseUrl + '/api/items/all')
+        .then((response) => {
+            console.log(response.data);
+            const data = response.data.map(item => item.itemName);
+            console.log(data);
+            const filteredData = data.filter(item => item.includes(input));
+            fillSearch(filteredData);
+        })
+        .catch((error) => {
+            console.log(error);
+        })
 }
 
 const fillSearch = (suggestArr) => {

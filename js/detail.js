@@ -1,41 +1,4 @@
 
-
-/*정보 변수화*/
-
-
-let dDay = document.querySelector('.d-day');
-dDay.innerText = detaildata[0].dDay;
-
-let realtitle = document.querySelector('.prdTitle');
-realtitle.innerText = detaildata[0].titles;
-
-let dateinfo = document.querySelector('.dateinfo');
-dateinfo.innerText = detaildata[0].concertdate;
-
-let placeinfo = document.querySelector('.placeinfo');
-placeinfo.innerText = detaildata[0].concertplace;
-
-
-let infotext1 = document.getElementById('veiwing_age');
-infotext1.innerText = detaildata[0].age;
-
-let infotext2 = document.getElementById('veiwing_time');
-infotext2.innerText = detaildata[0].veiwingTime;
-
-let infotext3 = document.getElementById('concertPerformer');
-infotext3.innerText = detaildata[0].performer;
-
-
-
-for (let i = 1; i <= 7; i++) {
-    let seat = document.getElementById(`Seat${i}`);
-    seat.innerText = detaildata[1][`seat${i}`];
-
-    let price = document.getElementById(`Price${i}`);
-    price.innerText = detaildata[1][`price${i}`];
-}
-
-
 /*하이퍼링크*/
 
 
@@ -55,60 +18,46 @@ function moveMain() {
 }
 
 /*calendar*/
+function afterDetailDataLoaded() {
+    console.log(detaildata.dateTime); // 이 시점에서 detaildata에 값이 할당되어 출력됨
 
+    const dateString = detaildata.dateTime;
 
-/*해야할 것
-*
-* 1. 달력 data날짜로 변경 ✔
-* 2. API 연결
-* */
+// 문자열을 공백을 기준으로 분할
+    const [datePart, timePart] = dateString.split(' ');
 
+// 날짜 부분을 연도, 월, 일로 분할
+    const [year, month, day] = datePart.split('-').map(Number);
 
-//var today = new Date();//오늘 날짜//내 컴퓨터 로컬을 기준으로 today에 Date 객체를 넣어줌
+    let today = new Date(year, month-1, day);
+    let date = new Date(year, month, day);
 
-let totaldate = detaildata[0].concertdate;
-splitdate = totaldate.split('.');
-console.log(splitdate[1])
+    buildCalendar(today,date);
 
-let year = splitdate[0];
-/*
-Number(year);
-console.log(typeof year);
-*/
+    let timeTableBtn = document.querySelector('.timeTableBtn');
+    let prevBtn = document.querySelector('.premonth');
+    let nextBtn = document.querySelector('.nextmonth');
+    //prevBtn.addEventListener('click', () => prevCalendar(today,date));
+    //nextBtn.addEventListener('click', () => nextCalendar(today,date));
+    timeTableBtn.innerText = "1회 " + timePart;
 
-let month = splitdate[1] - 1;
-if (month[0] == '0') {
-    month = month[1];
 }
 
-let day = splitdate[2][0] + splitdate[2][1];
-if (day[0] == '0') {
-    day = day[1];
-}
 
-console.log(year); //2024
-console.log(month) //10
-console.log(day) //9
-
-let today = new Date(year, month, day);
-let date = new Date(year, month, day); //today의 Date를 세어주는 역할
-
-window.onload = function(){
-    buildCalendar();
-}
-function prevCalendar() {
+function prevCalendar(today,date) {
     today = new Date(today.getFullYear(), today.getMonth() - 1, today.getDate());
-    buildCalendar();
+    buildCalendar(today,date);
 }
 
-function nextCalendar() {
+function nextCalendar(today,date) {
     today = new Date(today.getFullYear(), today.getMonth() + 1, today.getDate());
-    buildCalendar();
+    buildCalendar(today,date);
 }
 
 /*현재 달 달력 만들기*/
 
-function buildCalendar(){
+function buildCalendar(today,date){
+
     let doMonth = new Date(today.getFullYear(),today.getMonth(),1);
     //이번 달의 첫째 날,
     let lastDate = new Date(today.getFullYear(),today.getMonth()+1,0);
@@ -116,6 +65,7 @@ function buildCalendar(){
     let tbCalendar = document.getElementById("calendar");
     let tbCalendarYM = document.getElementById("tbCalendarYM");
     tbCalendarYM.innerHTML = today.getFullYear() + ". " + (today.getMonth() + 1) ;
+
 
     while (tbCalendar.rows.length > 2) {
         //열을 지워줌
@@ -143,6 +93,7 @@ function buildCalendar(){
         cell.className = "ableDate";
         cnt = cnt + 1;
 
+
         /*일요일 구하기*/
         if (cnt % 7 == 1) {
             cell.innerHTML = "<font color=#F79DC2>" + i
@@ -157,7 +108,7 @@ function buildCalendar(){
         /*지정된 날짜에 색 칠하기*/
 
         if (today.getFullYear() == date.getFullYear()
-            && today.getMonth() == date.getMonth()
+            && today.getMonth() == date.getMonth()-1
             && i == today.getDate()) {
 
 
