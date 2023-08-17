@@ -31,48 +31,48 @@ const getdetailinfo = () => {
             itemName: getSearchTermFromURL()
         }
     }).then(response =>{
-            console.log(response.data);
-            detaildata = response.data;
+        console.log(response.data);
+        detaildata = response.data;
 
-            placeinfo.innerText = detaildata.venue;
-            dateinfo.innerText = detaildata.dateTime;
-            infotext2.innerText = detaildata.runningTime;
-            infotext3.innerText = detaildata.artist;
-            infotext1.innerText = detaildata.ageRequirement;
-            posterimg.src=detaildata.post;
+        placeinfo.innerText = detaildata.venue;
+        dateinfo.innerText = detaildata.dateTime;
+        infotext2.innerText = detaildata.runningTime;
+        infotext3.innerText = detaildata.artist;
+        infotext1.innerText = detaildata.ageRequirement;
+        posterimg.src=detaildata.post;
 
-            let updatedate = detaildata.uploadTime;
-            let itemid = detaildata.id;
+        let updatedate = detaildata.uploadTime;
+        let itemid = detaildata.id;
 
-            afterDetailDataLoaded();
+        afterDetailDataLoaded();
 
-            const date1String = '2023-08-19';
-            const date2String = updatedate;
+        const date1String = '2023-08-19';
+        const date2String = updatedate;
 
-            const date1 = new Date(date1String);
-            const date2 = new Date(date2String);
+        const date1 = new Date(date1String);
+        const date2 = new Date(date2String);
 
-            const timeDifference = date1 - date2;
-            const daysDifference = timeDifference / (1000 * 60 * 60 * 24);
+        const timeDifference = date1 - date2;
+        const daysDifference = timeDifference / (1000 * 60 * 60 * 24);
 
-            realdday = 5 - (daysDifference);
+        realdday = 5 - (daysDifference);
 
-            if(realdday == 0){
-                dDay.innerText = "[D-day]";
-            }else if(realdday<0){
-                dDay.innerText = "[마감]";
-                document.querySelector('.sideBtnWrap').style.display="none";
-            }else{
-                dDay.innerText = "[D-"+ realdday+"]";
-            }
+        if(realdday == 0){
+            dDay.innerText = "[D-day]";
+        }else if(realdday<0){
+            dDay.innerText = "[마감]";
+            document.querySelector('.sideBtnWrap').style.display="none";
+        }else{
+            dDay.innerText = "[D-"+ realdday+"]";
+        }
 
 
-            getseatinfo(itemid);
+        getseatinfo(itemid);
 
 
     }).catch(function (error) {
-            console.log(error);
-        })
+        console.log(error);
+    })
 }
 
 const getseatinfo = (id) => {
@@ -102,9 +102,9 @@ const getseatinfo = (id) => {
 
 // 검색어로 detail페이지로 이동해 결과를 렌더링하는 함수
 function renderSearchResult() {
-const searchTerm = getSearchTermFromURL();
-const searchResult = document.getElementById('searchResult');
-searchResult.innerText = searchTerm;
+    const searchTerm = getSearchTermFromURL();
+    const searchResult = document.getElementById('searchResult');
+    searchResult.innerText = searchTerm;
 
 }
 window.addEventListener('DOMContentLoaded', () => {
@@ -112,4 +112,3 @@ window.addEventListener('DOMContentLoaded', () => {
     getdetailinfo();
 
 });
-
