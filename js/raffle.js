@@ -158,4 +158,3 @@ window.addEventListener('DOMContentLoaded', () => {
     renderResult();
     getiteminfo();
 });
-

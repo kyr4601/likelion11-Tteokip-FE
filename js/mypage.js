@@ -1,4 +1,4 @@
-let iddata = "이솔";
+let iddata = "김멋사";
 let maildata = "ek******@n****.com";
 
 let name = document.getElementById('nameid');
@@ -15,9 +15,20 @@ mailinfo.innerText = maildata;
  * @returns {number} - 필요한 페이지 번호 개수
  */
 /*필요한 페이지 번호 개수*/
-const getTotalPageCount = () => {
-    return Math.ceil(data.length / count_per_page);
+/*
+const getTotalPageCount = async () => {
+    try {
+        const data = await getData();
+        console.log('mypage.js');
+        const arrayLength = data.length;
+
+        return Math.ceil(arrayLength / count_per_page);
+
+    } catch (error) {
+        throw error;
+    }
 };
+*/
 
 /*하이퍼링크*/
 
@@ -31,22 +42,3 @@ function moveMypage() {
 function moveResult() {
     location.href = "../html/resultPopup.html"
 }
-
-
-//let mypagedata =[];
-
-
-// window.onload = () => {
-//     getmypage();
-// }
-
-/*검색 - 콘서트 제목 모두 가져오기
-const getmypage = () => {
-    axios.get('/api/sections/item/{itemId}?itemId=이름??')
-        .then(response =>{
-            console.log(response.data);
-            mypagedata = response.data;
-        }).catch(function (error) {
-            console.log(error);
-        })
-}*/
