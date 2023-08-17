@@ -153,6 +153,7 @@
 .posterBoxImage {
     display: inline-block;
     width: 300px;
+    margin-top: 8%;
 }
 
 .circle-button {
