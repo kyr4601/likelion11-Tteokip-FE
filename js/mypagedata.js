@@ -25,7 +25,6 @@ const getData = async () => {
         });
 
         const responseData = response.data; // response에서 데이터 추출
-        console.log(responseData)
         return responseData; // 전체 데이터 반환
     } catch (error) {
         console.log(error);

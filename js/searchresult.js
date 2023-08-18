@@ -31,7 +31,6 @@ const getdetailinfo = () => {
             itemName: getSearchTermFromURL()
         }
     }).then(response =>{
-        console.log(response.data);
         detaildata = response.data;
 
         placeinfo.innerText = detaildata.venue;
@@ -81,7 +80,6 @@ const getseatinfo = (id) => {
             itemId: id
         }
     }).then(response =>{
-        console.log(response.data);
         let seatdata = response.data;
 
 

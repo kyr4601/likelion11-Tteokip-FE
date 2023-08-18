@@ -17,8 +17,8 @@ let appliedPage = 1;
 
 const totalvar = async () => {
 
-    const list = document.getElementById("list");
-    list.innerText = '';
+    // const list = document.getElementById("list");
+    // list.innerText = '';
 
     try {
 
@@ -31,18 +31,18 @@ const totalvar = async () => {
         };
 
         const data = await getData();
-        console.log('Data:', data); // 전체 데이터 출력
         const arrayLength = data.length;
-        console.log('Array length:', arrayLength); // 데이터의 길이 출력
+
 
         const setPageOf = (pageNumber) => {
+            const list = document.getElementById("list");
+            list.innerText = '';
             for (
                 let i = count_per_page * (pageNumber - 1) + 1;
                 i <= count_per_page * (pageNumber - 1) + 3 && i <= arrayLength;
                 i++
             ) {
                 const itemName = data[i - 1].itemName;
-                console.log('itemName:', itemName);
 
                 const parentElement = document.createElement('li');
                 // 부모 요소 선택
@@ -56,9 +56,9 @@ const totalvar = async () => {
                 let reserveDateText = document.createElement("p");
                 reserveDateText.className = "itemText";
                 reserveDateText.id = "concertdate";
-                cutdate = data[i - 1].applicationDate;
+                cutdate = data[i - 1].raffleDrawDate;
                 cutdate = cutdate.split(' ')[0];
-                console.log(cutdate);
+
                 reserveDateText.textContent = cutdate;
                 reserveDateItemBox.appendChild(reserveDateText);
                 //reserveDate_itemBox를 itemBox에 추가
@@ -74,7 +74,7 @@ const totalvar = async () => {
                 });
 
                 let img = document.createElement("img");
-                img.src = "../img/Poster_Lauv.png";
+                img.src = data[i - 1].post;
                 img.alt = "posterImg";
                 img.className = "posterImg";
                 let infoItemText = document.createElement("div");
@@ -116,32 +116,25 @@ const totalvar = async () => {
                 resultBtn.className = "result_button";
 
                 const result = data[i - 1].raffleStatus;
-                console.log(result);
 
-                if (result == 'true') {
-                    resultBtn.addEventListener('click', moveResult);
-                    let resultBtnText = document.createTextNode('확인');
-                    resultBtn.appendChild(resultBtnText);
-                    resultBtn.classList.add('result_button');
 
-                } else {
-                    resultBtn.addEventListener('click', function () {
+                resultBtn.addEventListener('click', () => {
+                    if(result == 'true'){
+                        moveResult();
+                    }else{
                         alert('응모에 당첨되지 않았습니다.' + '\n' + '아쉽지만 다음에 진행되는 응모에 도전해주세요.' + '\n' + '\n' + '항상 Koun을 사랑해주셔서 감사합니다.');
-                        window.location.href = "main.html";
-                    });
-                    //실패했는데 팝업 나오면 안되는디 처리 어떻게하지
-                }
 
-                resultBtn.addEventListener('click', moveResult);
-                let resultBtnText = document.createTextNode('확인');
+                    }
+                });
+
+
+
+                let resultBtnText = document.createTextNode('결과');
                 resultBtn.appendChild(resultBtnText);
                 resultBtn.classList.add('result_button');
 
 
-                resultBtn.addEventListener('click', function (event) {
-                    resultTerm = event.target.innerText;
-                    window.location.href = 'resultPopup.html?result=' + encodeURIComponent(resultTerm);
-                });
+
 
                 let dDay = document.createElement("p");
                 dDay.className = "dday";
@@ -150,18 +143,11 @@ const totalvar = async () => {
                 let today_year = now.getFullYear();
                 let today_month = now.getMonth() + 1;
                 let today_date = now.getDate();
-                console.log(today_year); //2023
-                console.log(today_month); //7
-                console.log(today_date); //15
-
 
                 let uploadTime = data[i - 1].uploadTime;
-                console.log(uploadTime);
                 let update_year = uploadTime.split('-')[0];
                 let update_month = uploadTime.split('-')[1];
                 let update_date = uploadTime.split('-')[2];
-                console.log(update_year,update_month,update_date) //2023 08 17
-
 
                 /*dday 계산*/
                 if(today_year < update_year) {
@@ -183,11 +169,8 @@ const totalvar = async () => {
                     }
                 }
 
-                console.log(today_year, today_month, today_date); //2023 8 17
-                console.log(update_year,update_month,update_date) //2023 08 19
 
                 realdday = 5 - (today_date - update_date);
-                console.log(realdday)
                 if (realdday <= 0) {
                     currentInform.textContent = "응모종료";
                     currentItemBox.appendChild(resultBtn);

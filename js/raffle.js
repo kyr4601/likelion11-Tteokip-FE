@@ -7,7 +7,7 @@ const getiteminfo = () => {
             itemName: getTitleFromURL()
         }
     }).then(response =>{
-        console.log(response.data);
+        //console.log(response.data);
         let itemdata = response.data;
 
         document.getElementById('venue').innerText = itemdata.venue;
@@ -30,7 +30,7 @@ const getseatinfo = (id) => {
             itemId: id
         }
     }).then(response =>{
-        console.log(response.data);
+        //console.log(response.data);
         let seatdata = response.data;
 
 
@@ -158,3 +158,10 @@ window.addEventListener('DOMContentLoaded', () => {
     renderResult();
     getiteminfo();
 });
+
+function moveMain() {
+    location.href = "../html/main.html"
+}
+function moveMypage() {
+    location.href = "../html/mypage.html";
+}
