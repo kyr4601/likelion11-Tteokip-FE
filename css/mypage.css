@@ -207,7 +207,8 @@
 }
 
 .posterImg {
-    width: 80px;
+    width: 70px;
+    margin-right: 10px;
 }
 
 .info_itemText {

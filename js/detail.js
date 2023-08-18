@@ -19,7 +19,6 @@ function moveMain() {
 
 /*calendar*/
 function afterDetailDataLoaded() {
-    console.log(detaildata.dateTime); // 이 시점에서 detaildata에 값이 할당되어 출력됨
 
     const dateString = detaildata.dateTime;
 

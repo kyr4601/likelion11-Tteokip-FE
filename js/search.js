@@ -14,12 +14,10 @@ const timer = (beforeInput) => {
     setTimeout(() => {
 
         if(searchInput.value === beforeInput) {
-            console.log("입력멈춤");
             loadData(searchInput.value);
             checkInput();
 
         } else {
-            console.log("입력변함");
             checkInput();
         }
 
@@ -35,9 +33,7 @@ const timer = (beforeInput) => {
 const loadData = (input) => {
     axios.get(baseUrl + '/api/items/all')
         .then((response) => {
-            console.log(response.data);
             const data = response.data.map(item => item.itemName);
-            console.log(data);
             const filteredData = data.filter(item => item.includes(input));
             fillSearch(filteredData);
         })

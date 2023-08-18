@@ -1,6 +1,9 @@
 const baseUrl = "http://ec2-3-34-90-9.ap-northeast-2.compute.amazonaws.com:8080";
 
 
+function moveMypage() {
+    location.href = "../html/mypage.html";
+}
 
 
 const getResult = async () => {
