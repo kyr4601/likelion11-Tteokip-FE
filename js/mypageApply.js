@@ -175,6 +175,10 @@ const totalvar = async () => {
                     currentInform.textContent = "응모종료";
                     currentItemBox.appendChild(resultBtn);
                     currentItemBox.appendChild(currentInform);
+/*
+                    let flag = document.createElement('p');
+                    currentItemBox.appendChild(flag);
+*/
                 } else {
                     if (realdday <= 5) {
                         currentInform.textContent = "응모중";
@@ -192,6 +196,7 @@ const totalvar = async () => {
                 // cancel_itemBox 요소 생성
                 var cancelItemBox = document.createElement("div");
                 cancelItemBox.className = "cancel_itemBox";
+                cancelItemBox.onclick = showPopup();
                 var cancelButton = document.createElement("button");
                 cancelButton.className = "cancelBtn";
                 cancelButton.textContent = "취소";
