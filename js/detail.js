@@ -119,10 +119,9 @@ function buildCalendar(today,date){
     }
 }
 
-/*
 
 
-/!*찜버튼-메인css에서 가져옴*!/
+/*찜버튼-메인css에서 가져옴*/
 
 
 const likeBtn = document.getElementById('likeBtn');
@@ -139,4 +138,3 @@ likeBtn.addEventListener("click", function(){
     }
 
 })
-*/

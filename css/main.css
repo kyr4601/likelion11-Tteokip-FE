@@ -200,13 +200,16 @@ section {
     justify-content: center;
     margin-bottom: 4%;
 }
-.wrapper {
+.wrapper, .wrapper_new {
     max-width: 1100px;
     width: 100%;
     position: relative;
 }
-.wrapper #left,
-.wrapper #right{
+.wrapper #likeleft,
+.wrapper #likeright,
+.wrapper_new #newleft,
+.wrapper_new #newright
+{
     top: 50%;
     height: 50px;
     width: 50px;
@@ -222,46 +225,65 @@ section {
     transform: translateY(-50%);
     transition: transform 0.1s linear;
 }
-.wrapper #left:active,
-.wrapper #right:active{
+.wrapper #likeleft:active,
+.wrapper #likeright:active,
+.wrapper_new #newleft:active,
+.wrapper_new #newright:active
+{
     transform: translateY(-50%) scale(0.85);
 }
-.wrapper i:first-child{
+.wrapper i:first-child,
+.wrapper_new i:first-child
+{
     left: -22px;
 }
-.wrapper i:last-child{
+.wrapper i:last-child,
+.wrapper_new i:last-child
+{
     right: -22px;
 }
-.wrapper .carousel{
+.wrapper .likecarousel,
+.wrapper_new .carousel
+{
     display: grid;
     grid-auto-flow: column;
-    grid-auto-columns: calc((100% / 4) - 12px);
+    grid-auto-columns: calc((100% / 4) - 12px); /*card 4개만 보여주기*/
     overflow-x: auto;
     scroll-snap-type: x mandatory;
     gap: 16px;
     scroll-behavior: smooth;
     scrollbar-width: none;
 }
-.carousel::-webkit-scrollbar {
+.carousel::-webkit-scrollbar,
+.likecarousel::-webkit-scrollbar{
     display: none;
 }
-.carousel.no-transition {
+.carousel.no-transition,
+.likecarousel.no-transition{
     scroll-behavior: auto;
 }
-.carousel.dragging {
+/*
+
+.carousel.dragging ,
+.likecarousel.dragging{
     scroll-snap-type: none;
     scroll-behavior: auto;
 }
-.carousel.dragging .card {
+.carousel.dragging .card,
+.likecarousel.dragging .card{
     cursor: grab;
     user-select: none;
 }
-.carousel :where(.card, .img) {
+*/
+
+.carousel :where(.card, .img),
+.likecarousel :where(.card, .img){
     display: flex;
     justify-content: center;
     align-items: center;
 }
-.carousel .card {
+.carousel .card,
+.likecarousel .card{
     scroll-snap-align: start;
     height: 342px;
     list-style: none;
@@ -273,7 +295,8 @@ section {
     box-shadow: 0 4px 4px 0 rgba(0, 0, 0, 0.25);
     align-items: flex-start;
 }
-.carousel .card .img {
+.carousel .card .img,
+.likecarousel .card .img{
     height: 100%;
     width: 100%;
     overflow: hidden;
@@ -293,13 +316,15 @@ section {
     justify-content: space-between;
     width: 100%;
 }
-.carousel .card h3 {
+.carousel .card h3 ,
+.likecarousel .card h3{
     font-weight: 700;
     font-size: 1.1rem;
     margin: 4px 0 0 5px;
 }
 
-.carousel .card .card-title span {
+.carousel .card .card-title span ,
+.likecarousel .card .card-title span{
     color: #6A6D78;
     font-size: 0.9rem;
     margin-left: 5px;
@@ -362,13 +387,16 @@ section {
 /*cards 반응형*/
 
 @media screen and (max-width: 900px) {
-    .wrapper .carousel {
+    .wrapper .likecarousel,
+    .wrapper_new .carousel
+    {
         grid-auto-columns: calc((100% / 2) - 9px);
     }
 }
 @media screen and (max-width: 600px) {
-    .wrapper .carousel {
+    .wrapper .likecarousel,
+    .wrapper_new .carousel
+    {
         grid-auto-columns: 100%;
     }
 }
-
