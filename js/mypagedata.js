@@ -31,3 +31,4 @@ const getData = async () => {
         throw error; // 에러를 다시 던져서 호출자가 처리하도록 함
     }
 };
+

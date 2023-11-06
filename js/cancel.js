@@ -20,10 +20,14 @@ function closePopup(closepopup) {
     popup.classList.add('hide');
     popup.classList.remove('filter');
 }
+/*
 
 function alertmention() {
     const situation = document.qw;
 }
+*/
+
+/*
 
 const getcancelinfo = () => {
     axios.get(baseUrl + '/api/items/',{
@@ -57,7 +61,7 @@ const getdateinfo = (date) => {
         //console.log(response.data);
         let datedata = response.data;
 
-/*
+/!*
 
         for (let i = 0; i <= 6; i++) {
             let seat = document.getElementById(`seat${i}`);
@@ -70,10 +74,10 @@ const getdateinfo = (date) => {
             seatQuantity.innerText = seatdata[i].seatQuantity+ '석';
         }
 
-*/
+*!/
 
 
     }).catch(function (error) {
         console.log(error);
     })
-}
+}*/

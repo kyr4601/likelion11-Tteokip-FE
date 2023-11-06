@@ -42,7 +42,9 @@ const totalvar = async () => {
                 i <= count_per_page * (pageNumber - 1) + 3 && i <= arrayLength;
                 i++
             ) {
-                const itemName = data[i - 1].itemName;
+                /*
+                                const itemName = data[i - 1].itemName;
+                */
 
                 const parentElement = document.createElement('li');
                 // 부모 요소 선택
@@ -119,21 +121,18 @@ const totalvar = async () => {
 
 
                 resultBtn.addEventListener('click', () => {
-                    if(result == 'true'){
+                    if (result == 'true') {
                         moveResult();
-                    }else{
+                    } else {
                         alert('응모에 당첨되지 않았습니다.' + '\n' + '아쉽지만 다음에 진행되는 응모에 도전해주세요.' + '\n' + '\n' + '항상 Koun을 사랑해주셔서 감사합니다.');
 
                     }
                 });
 
 
-
                 let resultBtnText = document.createTextNode('결과');
                 resultBtn.appendChild(resultBtnText);
                 resultBtn.classList.add('result_button');
-
-
 
 
                 let dDay = document.createElement("p");
@@ -150,7 +149,7 @@ const totalvar = async () => {
                 let update_date = uploadTime.split('-')[2];
 
                 /*dday 계산*/
-                if(today_year < update_year) {
+                if (today_year < update_year) {
                     today_month += 12;
                     let day30 = [2, 4, 6, 9, 11];
                     let day31 = [1, 3, 5, 7, 8, 10, 12];
@@ -175,14 +174,14 @@ const totalvar = async () => {
                     currentInform.textContent = "응모종료";
                     currentItemBox.appendChild(resultBtn);
                     currentItemBox.appendChild(currentInform);
-/*
-                    let flag = document.createElement('p');
-                    currentItemBox.appendChild(flag);
-*/
+                    /*
+                                        let flag = document.createElement('p');
+                                        currentItemBox.appendChild(flag);
+                    */
                 } else {
                     if (realdday <= 5) {
                         currentInform.textContent = "응모중";
-                        dDay.textContent = "[D-" + realdday+']';
+                        dDay.textContent = "[D-" + realdday + ']';
                         currentItemBox.appendChild(currentInform);
                         currentItemBox.appendChild(dDay);
                     } else {
@@ -196,17 +195,38 @@ const totalvar = async () => {
                 // cancel_itemBox 요소 생성
                 var cancelItemBox = document.createElement("div");
                 cancelItemBox.className = "cancel_itemBox";
-                cancelItemBox.onclick = showPopup();
+
                 var cancelButton = document.createElement("button");
                 cancelButton.className = "cancelBtn";
                 cancelButton.textContent = "취소";
+                let cancelid = data[i - 1].id;
+                cancelButton.id = cancelid;
+                cancelButton.onclick = getId();
+
+
                 cancelItemBox.appendChild(cancelButton);
                 itemBox.appendChild(cancelItemBox);
                 //다 완성된 itemBox 요소를 ul에 추가
                 parentElement.appendChild(itemBox);
                 list.append(parentElement);
             }
-        };
+
+            function getId(event) {
+                var buttonId = event.target.id;
+                for (i = 0; i < data.length; i++) {
+                    if (data[i].id == buttonId) {
+                        let concertInfo = document.getElementById('concert_info');
+                        concertInfo.textContent = data[i].itemName;
+                        let concertDate = document.getElementById('concert_date');
+                        concertDate.textContent = data[i].applicationDate;
+                        let seatInfo = document.getElementById('seat_info');
+                        seatInfo.textContent = data[i].sectionName;
+
+                        showPopup();
+                    }
+                }
+            }
+        }
 
         setPageButtons();
         setPageOf(appliedPage);
@@ -267,3 +287,5 @@ const totalvar = async () => {
 }
 
 totalvar();
+
+
