@@ -1,3 +1,4 @@
+
 function showPopup() {
     const popup = document.querySelector('#cancelpopup');
 
@@ -19,6 +20,7 @@ function closePopup(closepopup) {
     const popup = document.querySelector(closepopup);
     popup.classList.add('hide');
     popup.classList.remove('filter');
+
 }
 /*
 
@@ -26,6 +28,20 @@ function alertmention() {
     const situation = document.qw;
 }
 */
+
+const CancelFunc = (id) => {
+    console.log('마지막',id)
+    axios.delete(baseUrl + '/api/raffles',{
+        params : {
+            raffleId : id
+        }
+    }).then(response => {
+        movetoPopup('#cancelpopup2','#cancelpopup3');
+
+    }).catch(function (error) {
+        console.log(error);
+    })
+}
 
 /*
 

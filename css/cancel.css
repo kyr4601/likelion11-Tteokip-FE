@@ -101,7 +101,7 @@ a {
     height: 700px;
 }
 
-.header {
+.header_cancel {
     margin: 30px;
     display: flex;
     justify-content: space-between;

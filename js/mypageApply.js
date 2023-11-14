@@ -25,6 +25,7 @@ const totalvar = async () => {
         const setPageButtons = () => {
             numberButWrapper.innerHTML = '';
             for (let i = 1; i <= Math.ceil(arrayLength / count_per_page); i++) {
+
                 numberButWrapper.innerHTML += `<span class="number-button"> ${i} </span>`;
             }
             numberButWrapper.firstChild.classList.add('selected');
@@ -37,6 +38,10 @@ const totalvar = async () => {
         const setPageOf = (pageNumber) => {
             const list = document.getElementById("list");
             list.innerText = '';
+
+            let idbox = document.getElementById('lastState');
+
+
             for (
                 let i = count_per_page * (pageNumber - 1) + 1;
                 i <= count_per_page * (pageNumber - 1) + 3 && i <= arrayLength;
@@ -193,16 +198,61 @@ const totalvar = async () => {
                 //current_itemBox를 itemBox에 추가
                 itemBox.appendChild(currentItemBox);
                 // cancel_itemBox 요소 생성
-                var cancelItemBox = document.createElement("div");
+                let cancelItemBox = document.createElement("div");
                 cancelItemBox.className = "cancel_itemBox";
 
                 var cancelButton = document.createElement("button");
-                cancelButton.className = "cancelBtn";
+                cancelButton.className = "cancelButtons";
+/*
+                cancelButton.id = 'cancelid';
+*/
                 cancelButton.textContent = "취소";
                 let cancelid = data[i - 1].id;
                 cancelButton.id = cancelid;
-                cancelButton.onclick = getId();
 
+/*
+                let idbox = document.getElementById('lastState');
+*/
+
+
+                cancelButton.addEventListener('click',(e) => {
+                    let buttonId = e.target.id;
+                    for (i = 0; i < data.length; i++) {
+                        if (data[i].id == buttonId) {
+                            let concertInfo = document.getElementById('concert_info');
+                            concertInfo.textContent = data[i].itemName;
+                            let concertDate = document.getElementById('concert_date');
+                            concertDate.textContent = data[i].applicationDate;
+                            let seatInfo = document.getElementById('seat_info');
+                            seatInfo.textContent = data[i].sectionName;
+
+
+                            showPopup();
+                            idbox.id = buttonId;
+                            console.log(idbox.id)
+
+
+                        }
+                    }
+                })
+
+
+
+
+/*
+                let Popup = document.getElementById('cancelpopup');
+                if(Popup.className == 'filter') {
+                    console.log('작동')
+                    let realId = document.querySelectorAll('#cancelpopup .canceltext');
+                    console.log(realId.id)
+                }
+
+                let Popup2 = document.getElementById('cancelpopup2');
+                if(Popup2.className == 'filter') {
+                    let cancelBtn2 = document.getElementById('cancelBtn2');
+                    cancelBtn2.addEventListener('click',CancelFunc(realId.id))
+
+                }*/
 
                 cancelItemBox.appendChild(cancelButton);
                 itemBox.appendChild(cancelItemBox);
@@ -211,21 +261,45 @@ const totalvar = async () => {
                 list.append(parentElement);
             }
 
-            function getId(event) {
-                var buttonId = event.target.id;
-                for (i = 0; i < data.length; i++) {
-                    if (data[i].id == buttonId) {
-                        let concertInfo = document.getElementById('concert_info');
-                        concertInfo.textContent = data[i].itemName;
-                        let concertDate = document.getElementById('concert_date');
-                        concertDate.textContent = data[i].applicationDate;
-                        let seatInfo = document.getElementById('seat_info');
-                        seatInfo.textContent = data[i].sectionName;
-
-                        showPopup();
-                    }
+            let popup = document.getElementById('cancelBtn2');
+            popup.addEventListener('click',(e) => {
+                let popup2 = document.getElementById('cancelpopup2').classList;
+                if (popup2.contains('filter')) {
+                    console.log(idbox.id,1)
+                    let realId = idbox.id;
+                    idbox.addEventListener('click',()=> {
+                        CancelFunc(realId);
+                        console.log('제발 마지막이기를')
+                    });
+                } else {
+                    console.log('?!')
                 }
-            }
+            })
+
+            let popup3 = document.getElementById('done');
+            popup3.addEventListener('click',() => {
+                alert('KOUN을 이용해주셔서 감사합니다.');
+                window.location.href = "../html/main.html";
+            })
+
+            /*            function getId(event) {
+                            let buttonId = event.target.id;
+                            for (i = 0; i < data.length; i++) {
+                                if (data[i].id == buttonId) {
+                                    let concertInfo = document.getElementById('concert_info');
+                                    concertInfo.textContent = data[i].itemName;
+                                    let concertDate = document.getElementById('concert_date');
+                                    concertDate.textContent = data[i].applicationDate;
+                                    let seatInfo = document.getElementById('seat_info');
+                                    seatInfo.textContent = data[i].sectionName;
+
+                                    let laststate = document.getElementById('lastState');
+                                    laststate.id = data[i].id;
+
+                                    showPopup();
+                                }
+                            }
+                        }*/
         }
 
         setPageButtons();

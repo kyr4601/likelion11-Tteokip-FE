@@ -99,13 +99,16 @@
     </div>
 </div>
 
+<!--
+popup
+-->
 
-<div id="cancelpopup" class="filter">
+<div id="cancelpopup" class="hide">
     <div class="contentWrapper">
-        <div class="header">
+        <div class="header_cancel">
             <div class="headerLeft">
                 <img src="../img/logo.png" alt="logo" class="logo">
-                <h2 class="canceltext">취소하기</h2>
+                <h2 class="canceltext" id="idBox">취소하기</h2>
             </div>
             <div class="headerRight">
                 <button class="XButton" onclick="closePopup('#cancelpopup')">X</button>
@@ -143,7 +146,7 @@
         </div>
         <div class="bottomBox">
             <div class="cancel_button">
-                <button class="cancelBtn" onclick="movetoPopup('#cancelpopup','#cancelpopup2')">결제취소</button>
+                <button class="cancelBtn" id="cancelBtn2" onclick="movetoPopup('#cancelpopup','#cancelpopup2')">결제취소</button>
             </div>
             <div class="alert">
                 <p class="alertText-ver.end"> <!--ver.마다 js 다르게 먹이기-->
@@ -160,7 +163,7 @@
 <!--여기부터 수수료 안내-->
 <div id="cancelpopup2" class="hide">
     <div class="contentWrapper">
-        <div class="header">
+        <div class="header_cancel">
             <div class="headerLeft">
                 <img src="../img/logo.png" alt="logo" class="logo">
                 <h2 class="canceltext">취소하기</h2>
@@ -212,7 +215,7 @@
         </div>
         <div class="bottomBox2">
             <div class="cancel_button">
-                <button class="cancelBtn" onclick="movetoPopup('#cancelpopup2','#cancelpopup3')">결제취소</button>
+                <button class="cancelBtn" id="lastState">결제취소</button>
             </div>
             <div class="alert">
                 <p class="alertText"> <!--ver.마다 js 다르게 먹이기 -- flag?-->
@@ -231,7 +234,7 @@
 -->
 <div id="cancelpopup3" class="hide">
     <div class="contentWrapper">
-        <div class="header">
+        <div class="header_cancel">
             <div class="headerLeft">
                 <img src="../img/logo.png" alt="logo" class="logo">
                 <h2 class="canceltext">취소하기</h2>
@@ -248,7 +251,7 @@
         </div>
         <div class="bottomBox3">
             <div class="cancel_button">
-                <button class="cancelBtn" onclick="closePopup('#cancelpopup3')">확인</button>
+                <button class="cancelBtn" id="done" onclick="closePopup('#cancelpopup3')">확인</button>
             </div>
         </div>
     </div>
@@ -256,7 +259,7 @@
 
 
 <script src="../js/mypage.js"></script>
-<script src="../js/myPageApply.js"></script>
+<script src="../js/mypageApply.js"></script>
 <script src="../js/mypageLike.js"></script>
 <script src="../js/cancel.js"></script>
 

@@ -267,7 +267,7 @@
 }
 
 
-.cancelBtn, .reservBtn, .result_button{
+.cancelButtons, .reservBtn, .result_button{
     padding: 3px 15px;
     border: 1px solid var(--color-main-green);
     border-radius: 5px;
@@ -275,7 +275,7 @@
     color: white;
 }
 
-.cancelBtn:hover, .reservBtn:hover, .result_button:hover {
+.cancelButtons:hover, .reservBtn:hover, .result_button:hover {
     cursor: pointer;
     box-shadow: 0 0 2px 0 var(--color-main-gray);
 }
@@ -338,7 +338,7 @@
 
 /*반응형*/
 
-@media screen and (max-width: 800px) {
+@media screen and (max-width: 1000px) {
 
     .header {
         display: none;
