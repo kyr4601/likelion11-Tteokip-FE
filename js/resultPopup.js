@@ -1,4 +1,6 @@
-const baseUrl = "http://ec2-3-34-90-9.ap-northeast-2.compute.amazonaws.com:8080";
+
+
+const baseUrl = "http://13.124.88.252:8080";
 
 
 function moveMypage() {

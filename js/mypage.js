@@ -8,6 +8,8 @@ let mailinfo = document.getElementById('mailinfo')
 name.innerText = iddata;
 nameinfo.innerText = iddata;
 mailinfo.innerText = maildata;
+
+
 /*공연정보 페이지네이션*/
 
 /**
@@ -42,3 +44,4 @@ function moveMypage() {
 function moveResult() {
     location.href = "../html/resultPopup.html"
 }
+

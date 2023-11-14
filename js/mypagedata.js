@@ -12,7 +12,7 @@ const data = [
 
 
 
-const baseUrl = "http://ec2-3-34-90-9.ap-northeast-2.compute.amazonaws.com:8080";
+const baseUrl = "http://13.124.88.252:8080";
 /*
 http://ec2-3-38-100-226.ap-northeast-2.compute.amazonaws.com:8080
 */
@@ -31,3 +31,4 @@ const getData = async () => {
         throw error; // 에러를 다시 던져서 호출자가 처리하도록 함
     }
 };
+

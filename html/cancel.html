@@ -69,7 +69,7 @@
         <div class="header">
             <div class="headerLeft">
                 <img src="../img/logo.png" alt="logo" class="logo">
-                <h2 class="canceltext">취소하기</h2>
+                <h2 class="canceltext" id="canceltext">취소하기</h2>
             </div>
             <div class="headerRight">
                 <button class="XButton" onclick="closePopup('#cancelpopup2')">X</button>
@@ -118,7 +118,7 @@
         </div>
         <div class="bottomBox2">
             <div class="cancel_button">
-                <button class="cancelBtn" onclick="movetoPopup('#cancelpopup2','#cancelpopup3')">결제취소</button>
+                <button class="cancelBtn" id = "last_cancel" onclick="movetoPopup('#cancelpopup2','#cancelpopup3')">결제취소</button>
             </div>
             <div class="alert">
                 <p class="alertText"> <!--ver.마다 js 다르게 먹이기 -- flag?-->

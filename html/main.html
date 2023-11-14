@@ -14,10 +14,9 @@
 <body>
 <nav class="navbar">
     <ul class="nav_menu">
-        <li><a href="#" class="menu1">로그아웃</a></li>
+        <li><a href="login.html" class="menu1">로그인</a></li>
         <li><a href="mypage.html" class="menu1">결과확인</a></li>
         <li><a href="mypage.html" class="menu1">마이페이지</a></li>
-        <li><a href="#" class="menu1">고객센터</a></li>
     </ul>
 </nav>
 <header class="header">
@@ -35,8 +34,8 @@
     </div>
     <div class="icons">
         <img src="../img/alarm.png" alt="알람">
-        <img class="goMyPage" src="../img/heart.png" alt="찜">
-        <img class="goMyPage" src="../img/mypageicon.png" alt="사람">
+        <img onclick="goMyPage()" src="../img/heart.png" alt="찜">
+        <img onclick="goMyPage()" src="../img/mypageicon.png" alt="사람">
     </div>
 </header>
 <main class="slideshow-container">
@@ -52,23 +51,22 @@
         </div>
     </div>
 </main>
-
-
 <div class="chart-text">
-    <h3>인기 Top10</h3>
-    <p>이번 주에 가장 많은 관심을 받았어요</p>
+    <h3>신규 Top10</h3>
+    <p>새롭고 다양한 공연을 확인해보세요</p>
 </div>
 <section>
-    <div class="wrapper">
-        <i id="likeleft" class="fa-solid fa-angle-left"></i>
-        <ul class="likecarousel">
+    <div class="wrapper wrapper1">
+        <i class="fa-solid fa-angle-left arrow-btn" data-carousel="carousel1"></i>
+        <ul class="carousel carousel1">
             <li class="card">
                 <div class="img">
                     <img src="https://ticketimage.interpark.com/Play/image/large/23/23007654_p.gif" alt="img" draggable="false">
-                        <div id="likeBtn_like" class="circle-button">
-                            <i id="emptyHeart_like" class="fa-regular fa-heart fa-lg" style="color: #ffffff; display: flex;"></i>
-                            <i id="fillHeart_like" class="fa-solid fa-heart fa-lg" style="color: #ffffff; display: none;"></i>
-                        </div>
+                    <!--                    <div id="likeBtn" class="circle-button">-->
+                    <!--                        <i id="emptyHeart" class="fa-regular fa-heart fa-lg" style="color: #ffffff; display: flex;"></i>-->
+                    <!--                        <i id="fillHeart" class="fa-solid fa-heart fa-lg" style="color: #ffffff; display: none;"></i>-->
+                    <!--                    </div>-->
+
                 </div>
                 <div class="card-title">
                     <div>
@@ -85,10 +83,6 @@
             <li class="card">
                 <div class="img">
                     <img src="https://ticketimage.interpark.com/Play/image/large/23/23007291_p.gif" alt="img" draggable="false">
-                    <div class="circle-button">
-                        <i class="fa-regular fa-heart fa-lg" style="color: #ffffff; display: flex;"></i>
-                        <i class="fa-solid fa-heart fa-lg" style="color: #ffffff; display: none;"></i>
-                    </div>
                 </div>
                 <div class="card-title">
                     <div>
@@ -105,10 +99,6 @@
             <li class="card">
                 <div class="img">
                     <img src="https://ticketimage.interpark.com/Play/image/large/23/23011026_p.gif" alt="img" draggable="false">
-                    <div class="circle-button">
-                        <i class="fa-regular fa-heart fa-lg" style="color: #ffffff; display: flex;"></i>
-                        <i class="fa-solid fa-heart fa-lg" style="color: #ffffff; display: none;"></i>
-                    </div>
                 </div>
                 <div class="card-title">
                     <div>
@@ -125,10 +115,6 @@
             <li class="card">
                 <div class="img">
                     <img src="https://ticketimage.interpark.com/Play/image/large/23/23011003_p.gif" alt="img" draggable="false">
-                    <div class="circle-button">
-                        <i class="fa-regular fa-heart fa-lg" style="color: #ffffff; display: flex;"></i>
-                        <i class="fa-solid fa-heart fa-lg" style="color: #ffffff; display: none;"></i>
-                    </div>
                 </div>
                 <div class="card-title">
                     <div>
@@ -145,10 +131,6 @@
             <li class="card">
                 <div class="img">
                     <img src="https://ticketimage.interpark.com/Play/image/large/23/23010652_p.gif" alt="img" draggable="false">
-                    <div class="circle-button">
-                        <i class="fa-regular fa-heart fa-lg" style="color: #ffffff; display: flex;"></i>
-                        <i class="fa-solid fa-heart fa-lg" style="color: #ffffff; display: none;"></i>
-                    </div>
                 </div>
                 <div class="card-title">
                     <div>
@@ -165,10 +147,6 @@
             <li class="card">
                 <div class="img">
                     <img src="https://ticketimage.interpark.com/Play/image/large/23/23009197_p.gif" alt="img" draggable="false">
-                    <div class="circle-button">
-                        <i class="fa-regular fa-heart fa-lg" style="color: #ffffff; display: flex;"></i>
-                        <i class="fa-solid fa-heart fa-lg" style="color: #ffffff; display: none;"></i>
-                    </div>
                 </div>
                 <div class="card-title">
                     <div>
@@ -185,10 +163,6 @@
             <li class="card">
                 <div class="img">
                     <img src="https://ticketimage.interpark.com/Play/image/large/23/23010177_p.gif" alt="img" draggable="false">
-                    <div class="circle-button">
-                        <i class="fa-regular fa-heart fa-lg" style="color: #ffffff; display: flex;"></i>
-                        <i class="fa-solid fa-heart fa-lg" style="color: #ffffff; display: none;"></i>
-                    </div>
                 </div>
                 <div class="card-title">
                     <div>
@@ -205,10 +179,6 @@
             <li class="card">
                 <div class="img">
                     <img src="https://ticketimage.interpark.com/Play/image/large/23/23011005_p.gif" alt="img" draggable="false">
-                    <div class="circle-button">
-                        <i class="fa-regular fa-heart fa-lg" style="color: #ffffff; display: flex;"></i>
-                        <i class="fa-solid fa-heart fa-lg" style="color: #ffffff; display: none;"></i>
-                    </div>
                 </div>
                 <div class="card-title">
                     <div>
@@ -225,10 +195,6 @@
             <li class="card">
                 <div class="img">
                     <img src="https://ticketimage.interpark.com/Play/image/large/23/23011060_p.gif" alt="img" draggable="false">
-                    <div class="circle-button">
-                        <i class="fa-regular fa-heart fa-lg" style="color: #ffffff; display: flex;"></i>
-                        <i class="fa-solid fa-heart fa-lg" style="color: #ffffff; display: none;"></i>
-                    </div>
                 </div>
                 <div class="card-title">
                     <div>
@@ -245,10 +211,6 @@
             <li class="card">
                 <div class="img">
                     <img src="https://ticketimage.interpark.com/Play/image/large/23/23009717_p.gif" alt="img" draggable="false">
-                    <div class="circle-button">
-                        <i class="fa-regular fa-heart fa-lg" style="color: #ffffff; display: flex;"></i>
-                        <i class="fa-solid fa-heart fa-lg" style="color: #ffffff; display: none;"></i>
-                    </div>
                 </div>
                 <div class="card-title">
                     <div>
@@ -264,25 +226,24 @@
             </li>
         </ul>
 
-        <i id="likeright" class="fa-solid fa-angle-right"></i>
+        <i class="fa-solid fa-angle-right arrow-btn" data-carousel="carousel1"></i>
     </div>
 </section>
-
 <div class="chart-text">
-    <h3>신규 Top10</h3>
-    <p>새롭고 다양한 공연을 확인해보세요</p>
+    <h3>인기 Top10</h3>
+    <p>이번 주에 가장 많은 관심을 받았어요</p>
 </div>
 <section>
-    <div class="wrapper_new">
-        <i id="newleft" class="fa-solid fa-angle-left"></i>
-        <ul class="carousel">
+    <div class="wrapper wrapper2">
+        <i class="fa-solid fa-angle-left arrow-btn" data-carousel="carousel2"></i>
+        <ul class="carousel carousel2">
             <li class="card">
                 <div class="img">
                     <img src="https://ticketimage.interpark.com/Play/image/large/23/23007654_p.gif" alt="img" draggable="false">
-                        <div id="likeBtn_new" class="circle-button">
-                            <i id="emptyHeart_new" class="fa-regular fa-heart fa-lg" style="color: #ffffff; display: flex;"></i>
-                            <i id="fillHeart_new" class="fa-solid fa-heart fa-lg" style="color: #ffffff; display: none;"></i>
-                        </div>
+                    <!--                    <div id="likeBtn" class="circle-button">-->
+                    <!--                        <i id="emptyHeart" class="fa-regular fa-heart fa-lg" style="color: #ffffff; display: flex;"></i>-->
+                    <!--                        <i id="fillHeart" class="fa-solid fa-heart fa-lg" style="color: #ffffff; display: none;"></i>-->
+                    <!--                    </div>-->
 
                 </div>
                 <div class="card-title">
@@ -300,10 +261,6 @@
             <li class="card">
                 <div class="img">
                     <img src="https://ticketimage.interpark.com/Play/image/large/23/23007291_p.gif" alt="img" draggable="false">
-                    <div class="circle-button">
-                        <i class="fa-regular fa-heart fa-lg" style="color: #ffffff; display: flex;"></i>
-                        <i class="fa-solid fa-heart fa-lg" style="color: #ffffff; display: none;"></i>
-                    </div>
                 </div>
                 <div class="card-title">
                     <div>
@@ -320,10 +277,6 @@
             <li class="card">
                 <div class="img">
                     <img src="https://ticketimage.interpark.com/Play/image/large/23/23011026_p.gif" alt="img" draggable="false">
-                    <div class="circle-button">
-                        <i class="fa-regular fa-heart fa-lg" style="color: #ffffff; display: flex;"></i>
-                        <i class="fa-solid fa-heart fa-lg" style="color: #ffffff; display: none;"></i>
-                    </div>
                 </div>
                 <div class="card-title">
                     <div>
@@ -340,10 +293,6 @@
             <li class="card">
                 <div class="img">
                     <img src="https://ticketimage.interpark.com/Play/image/large/23/23011003_p.gif" alt="img" draggable="false">
-                    <div class="circle-button">
-                        <i class="fa-regular fa-heart fa-lg" style="color: #ffffff; display: flex;"></i>
-                        <i class="fa-solid fa-heart fa-lg" style="color: #ffffff; display: none;"></i>
-                    </div>
                 </div>
                 <div class="card-title">
                     <div>
@@ -376,10 +325,6 @@
             <li class="card">
                 <div class="img">
                     <img src="https://ticketimage.interpark.com/Play/image/large/23/23009197_p.gif" alt="img" draggable="false">
-                    <div class="circle-button">
-                        <i class="fa-regular fa-heart fa-lg" style="color: #ffffff; display: flex;"></i>
-                        <i class="fa-solid fa-heart fa-lg" style="color: #ffffff; display: none;"></i>
-                    </div>
                 </div>
                 <div class="card-title">
                     <div>
@@ -394,32 +339,24 @@
                 <span class="little-title2"><img src="../img/calendar.png" alt="">2023.09.12</span>
             </li>
             <li class="card">
-            <div class="img">
-                <img src="https://ticketimage.interpark.com/Play/image/large/23/23010177_p.gif" alt="img" draggable="false">
-                <div class="circle-button">
-                    <i class="fa-regular fa-heart fa-lg" style="color: #ffffff; display: flex;"></i>
-                    <i class="fa-solid fa-heart fa-lg" style="color: #ffffff; display: none;"></i>
+                <div class="img">
+                    <img src="https://ticketimage.interpark.com/Play/image/large/23/23010177_p.gif" alt="img" draggable="false">
                 </div>
-            </div>
-            <div class="card-title">
-                <div>
-                    <h3>성시경 with friends</h3>
-                    <span>자, 오늘은</span>
+                <div class="card-title">
+                    <div>
+                        <h3>성시경 with friends</h3>
+                        <span>자, 오늘은</span>
+                    </div>
+                    <div class="d-day">
+                        <p>D-5</p>
+                    </div>
                 </div>
-                <div class="d-day">
-                    <p>D-5</p>
-                </div>
-            </div>
-            <span class="little-title1"><img src="../img/location.png" alt="">KSPO DOME</span>
-            <span class="little-title2"><img src="../img/calendar.png" alt="">2023.09.02</span>
+                <span class="little-title1"><img src="../img/location.png" alt="">KSPO DOME</span>
+                <span class="little-title2"><img src="../img/calendar.png" alt="">2023.09.02</span>
             </li>
             <li class="card">
                 <div class="img">
                     <img src="https://ticketimage.interpark.com/Play/image/large/23/23011005_p.gif" alt="img" draggable="false">
-                    <div class="circle-button">
-                        <i class="fa-regular fa-heart fa-lg" style="color: #ffffff; display: flex;"></i>
-                        <i class="fa-solid fa-heart fa-lg" style="color: #ffffff; display: none;"></i>
-                    </div>
                 </div>
                 <div class="card-title">
                     <div>
@@ -436,10 +373,6 @@
             <li class="card">
                 <div class="img">
                     <img src="https://ticketimage.interpark.com/Play/image/large/23/23011060_p.gif" alt="img" draggable="false">
-                    <div class="circle-button">
-                        <i class="fa-regular fa-heart fa-lg" style="color: #ffffff; display: flex;"></i>
-                        <i class="fa-solid fa-heart fa-lg" style="color: #ffffff; display: none;"></i>
-                    </div>
                 </div>
                 <div class="card-title">
                     <div>
@@ -456,10 +389,6 @@
             <li class="card">
                 <div class="img">
                     <img src="https://ticketimage.interpark.com/Play/image/large/23/23009717_p.gif" alt="img" draggable="false">
-                    <div class="circle-button">
-                        <i class="fa-regular fa-heart fa-lg" style="color: #ffffff; display: flex;"></i>
-                        <i class="fa-solid fa-heart fa-lg" style="color: #ffffff; display: none;"></i>
-                    </div>
                 </div>
                 <div class="card-title">
                     <div>
@@ -475,13 +404,11 @@
             </li>
         </ul>
 
-        <i id="newright" class="fa-solid fa-angle-right"></i>
+        <i class="fa-solid fa-angle-right arrow-btn" data-carousel="carousel2"></i>
     </div>
 </section>
-
 
 <script src="../js/main.js"></script>
 <script src="../js/search.js"></script>
 </body>
 </html>
-

@@ -1,3 +1,4 @@
+
 function showPopup() {
     const popup = document.querySelector('#cancelpopup');
 
@@ -19,11 +20,30 @@ function closePopup(closepopup) {
     const popup = document.querySelector(closepopup);
     popup.classList.add('hide');
     popup.classList.remove('filter');
+
 }
+/*
 
 function alertmention() {
     const situation = document.qw;
 }
+*/
+
+const CancelFunc = (id) => {
+    console.log('마지막',id)
+    axios.delete(baseUrl + '/api/raffles',{
+        params : {
+            raffleId : id
+        }
+    }).then(response => {
+        movetoPopup('#cancelpopup2','#cancelpopup3');
+
+    }).catch(function (error) {
+        console.log(error);
+    })
+}
+
+/*
 
 const getcancelinfo = () => {
     axios.get(baseUrl + '/api/items/',{
@@ -57,7 +77,7 @@ const getdateinfo = (date) => {
         //console.log(response.data);
         let datedata = response.data;
 
-/*
+/!*
 
         for (let i = 0; i <= 6; i++) {
             let seat = document.getElementById(`seat${i}`);
@@ -70,10 +90,10 @@ const getdateinfo = (date) => {
             seatQuantity.innerText = seatdata[i].seatQuantity+ '석';
         }
 
-*/
+*!/
 
 
     }).catch(function (error) {
         console.log(error);
     })
-}
+}*/
