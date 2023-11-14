@@ -39,7 +39,7 @@ const getseatinfo = (id) => {
             seat.innerText = seatdata[i].sectionName;
 
             let price = document.getElementById(`price${i}`);
-            price.innerText = seatdata[i].price+ ' 원';
+            price.innerText = seatdata[i].price.toLocaleString()+' 원';
 
             let seatQuantity = document.getElementById(`seatQuantity${i}`);
             seatQuantity.innerText = seatdata[i].seatQuantity+ '석';
@@ -120,8 +120,8 @@ const createRaffle = () => {
         "itemName": getTitleFromURL(),
         "sectionId": sectionid+1
     }).then(function (response) {
-        alert('응모가 완료되었습니다.' + '\n' + 'Koun이 당신의 행운을 빕니다.');
-        window.location.href = "main.html";
+        console.log('raffle 생성')
+        goPay();
     }).catch(function (error) {
         console.log("error")
     })
@@ -159,9 +159,24 @@ window.addEventListener('DOMContentLoaded', () => {
     getiteminfo();
 });
 
-function moveMain() {
+const moveMain = () => {
     location.href = "../html/main.html"
 }
-function moveMypage() {
+const moveMypage = () => {
     location.href = "../html/mypage.html";
+}
+
+const goPay = () => {
+    let name = getTitleFromURL()
+    let time = document.getElementById('dateTime').innerText
+    let count = quantity.innerText
+    let price = totalprice.innerText
+
+    let url = 'pay.html?';
+    url += 'name=' + encodeURIComponent(name);
+    url += '&time=' + encodeURIComponent(time);
+    url += '&count=' + encodeURIComponent(count);
+    url += '&price=' + encodeURIComponent(price);
+
+    window.location.href = url;
 }

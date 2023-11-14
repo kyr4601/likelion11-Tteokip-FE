@@ -88,7 +88,7 @@ const getseatinfo = (id) => {
             seat.innerText = seatdata[i].sectionName;
 
             let price = document.getElementById(`Price${i}`);
-            price.innerText = seatdata[i].price+ '원';
+            price.innerText = seatdata[i].price.toLocaleString()+ ' 원';
         }
 
 
