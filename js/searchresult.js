@@ -17,9 +17,6 @@ let infotext3 = document.getElementById('concertPerformer');
 let posterimg = document.querySelector('.posterBoxImage');
 const likeIdBox = document.querySelector('.posterBox');
 
-
-
-
 let detaildata;
 
 

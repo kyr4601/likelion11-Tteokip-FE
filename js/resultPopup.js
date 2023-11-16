@@ -7,13 +7,13 @@ function moveMypage() {
 }
 function getResultTermFromURL() {
     const urlParams = new URLSearchParams(window.location.search);
-    return urlParams.get('raffleId');
+    return urlParams.get('raffleid');
 }
 
 
 const getResult = async () => {
     try {
-        const response = await axios.get(baseUrl + `/api/raffles/result`, {
+        const response = await axios.get(baseUrl + '/api/raffles/result', {
             params: {
                 raffleId: getResultTermFromURL()
             }
@@ -42,10 +42,10 @@ const result = async () => {
             resultinfo.innerText = '당첨 / ' + data.raffleCount + ' 매';
         }
 
-        const timeinfo = document.getElementById('day/place');
+        const timeinfo = document.getElementById('time');
         timeinfo.innerText = data.dateTime;
 
-        const seatinfo = document.getElementById('section_name');
+        const seatinfo = document.getElementById('seat');
         seatinfo.innerText = data.sectionName;
 
 /*
