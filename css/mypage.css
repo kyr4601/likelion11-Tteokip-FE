@@ -192,7 +192,7 @@
 }
 
 
-.reserveDate_itemBox, .post_number {
+.reserveDate_itemBox {
     padding: 0 18px 0 0;
 
 }
@@ -212,8 +212,7 @@
 }
 
 .info_itemText {
-    display: flex;
-    flex-wrap: wrap;
+    display: block;
     align-items: center;
     padding-bottom: 20px;
 }
@@ -222,6 +221,10 @@
     font-size: large;
     font-weight: bold;
     padding-top: 20px;
+}
+
+#concertname {
+    margin-right: 50px;
 }
 
 
@@ -247,7 +250,11 @@
     flex: 1;
 }
 
-.reservDetail_box, .current_itemBox, .cancel_itemBox, .post_number, .apply_itemBox {
+.post_number {
+    flex:0.8;
+}
+
+.reservDetail_box, .current_itemBox, .cancel_itemBox, .apply_itemBox {
     flex: 1;
 }
 

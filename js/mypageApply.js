@@ -47,10 +47,6 @@ const totalvar = async () => {
                 i <= count_per_page * (pageNumber - 1) + 3 && i <= arrayLength;
                 i++
             ) {
-                /*
-                                const itemName = data[i - 1].itemName;
-                */
-
                 const parentElement = document.createElement('li');
                 // 부모 요소 선택
                 //var parentElement = document.querySelector('#orderList');
@@ -95,7 +91,7 @@ const totalvar = async () => {
                 let infoTime = document.createElement("p");
                 infoTime.className = "info_time";
                 infoTime.id = "concertinform";
-                infoTime.textContent = data[i - 1].dateTime;
+                infoTime.textContent = data[i - 1].dateTime.substring(0,10);
                 let infoBar = document.createElement("p");
                 infoBar.className = "info_bar";
                 infoBar.textContent = "|";
@@ -124,16 +120,19 @@ const totalvar = async () => {
 
                 const result = data[i - 1].raffleStatus;
 
+/*
 
                 resultBtn.addEventListener('click', () => {
-                    if (result == 'true') {
+                    if (result ==='true') {
+                        console.log(result)
                         moveResult();
                     } else {
-                        console.log(data[i-1].raffleStatus)
+                        console.log(result)
                         alert('응모에 당첨되지 않았습니다.' + '\n' + '아쉽지만 다음에 진행되는 응모에 도전해주세요.' + '\n' + '\n' + '항상 Koun을 사랑해주셔서 감사합니다.');
-
+                        moveMain();
                     }
                 });
+*/
 
 
                 let resultBtnText = document.createTextNode('결과');
@@ -142,7 +141,14 @@ const totalvar = async () => {
                 resultBtn.addEventListener('click', function (event) {
                     let raffleidterm = data[i - 1].id;
                     console.log(raffleidterm)
-                    window.location.href = 'resultPopup.html?raffleid=' + encodeURIComponent(raffleidterm);
+                    if (result === 'true') {
+                        console.log(result)
+                        window.location.href = 'resultPopup.html?raffleid=' + encodeURIComponent(raffleidterm);
+                    } else {
+                        console.log(result)
+                        alert('응모에 당첨되지 않았습니다.' + '\n' + '아쉽지만 다음에 진행되는 응모에 도전해주세요.' + '\n' + '\n' + '항상 Koun을 사랑해주셔서 감사합니다.');
+                        moveMypage();
+                    }
                 });
 
 
@@ -179,8 +185,8 @@ const totalvar = async () => {
                     }
                 }
 
-                console.log(today_month,'today_month')
-                console.log(update_month,'update_month')
+                //console.log(today_month,'today_month')
+                //console.log(update_month,'update_month')
 
                 realdday = 5 - (today_date - update_date);
 

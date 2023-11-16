@@ -42,16 +42,12 @@ function moveMypage() {
 }
 
 function moveResult() {
-    location.href = "../html/resultPopup.html"
+    location.href = "../html/resultPopup.html";
 }
-
 const getuserinfo = () => {
-    axios.get(baseUrl + '/api/users',{
-        params: {
-            //userId: localStorage.getItem('user-id')
-            userId: 1
-        }
-    }).then(response =>{
+    let id = localStorage.getItem('user-id')
+    axios.get(baseUrl + `/api/user/${id}`
+    ).then(response =>{
         //console.log(response.data);
         let username = document.getElementById('nameid');
         username.innerText = response.data.name;
@@ -60,7 +56,7 @@ const getuserinfo = () => {
         username2.innerText = response.data.name;
 
         let mailinfo = document.getElementById('mailinfo');
-        mailinfo.innerText = email;
+        mailinfo.innerText = response.data.email;
 
     }).catch(function (error) {
         console.log(error);

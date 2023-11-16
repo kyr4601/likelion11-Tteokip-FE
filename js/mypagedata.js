@@ -17,6 +17,7 @@ const baseUrl = "http://13.124.88.252:8080";
 /*
 http://ec2-3-38-100-226.ap-northeast-2.compute.amazonaws.com:8080
 */
+
 const getData = async () => {
     try {
         const response = await axios.get(baseUrl + '/api/raffles/users', {
@@ -24,9 +25,8 @@ const getData = async () => {
                 userId: localStorage.getItem('user-id')
             }
         });
-
-        const responseData = response.data; // response에서 데이터 추출
-        console.log(responseData)
+        const responseData = response.data;
+        console.log(responseData,'data')
         return responseData; // 전체 데이터 반환
     } catch (error) {
         console.log(error);
@@ -36,13 +36,12 @@ const getData = async () => {
 
 const likeData = async () => {
     try {
-        const response = await axios.get(baseUrl + '/api/items', {
-            params: {
-                userId: 2
-            }
-        });
+        let id = localStorage.getItem('user-id')
+        const response = await axios.get(baseUrl + `/api/items/${id}`);
 
         const responseData = response.data; // response에서 데이터 추출
+        console.log(responseData)
+
         return responseData; // 전체 데이터 반환
     } catch (error) {
         console.log(error);
