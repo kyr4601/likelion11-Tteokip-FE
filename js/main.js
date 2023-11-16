@@ -21,6 +21,9 @@ const goMyPage = () => {
     window.location.href = '../html/mypage.html';
 }
 
+function moveMypage() {
+    location.href = "../html/mypage.html";
+}
 
 
 /*like*/

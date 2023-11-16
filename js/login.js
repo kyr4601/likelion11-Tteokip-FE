@@ -2,7 +2,7 @@ const moveMain = () => {
     location.href = "../html/main.html"
 }
 
-const baseUrl = "http://ec2-54-180-103-20.ap-northeast-2.compute.amazonaws.com:8080";
+const baseUrl = "http://13.124.88.252:8080";
 
 /*회원가입
 

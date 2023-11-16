@@ -13,6 +13,7 @@ const data = [
 
 
 const baseUrl = "http://13.124.88.252:8080";
+
 /*
 http://ec2-3-38-100-226.ap-northeast-2.compute.amazonaws.com:8080
 */
@@ -21,6 +22,22 @@ const getData = async () => {
         const response = await axios.get(baseUrl + '/api/raffles/users', {
             params: {
                 userId: 1
+            }
+        });
+
+        const responseData = response.data; // response에서 데이터 추출
+        return responseData; // 전체 데이터 반환
+    } catch (error) {
+        console.log(error);
+        throw error; // 에러를 다시 던져서 호출자가 처리하도록 함
+    }
+};
+
+const likeData = async () => {
+    try {
+        const response = await axios.get(baseUrl + '/api/items', {
+            params: {
+                userId: 2
             }
         });
 
