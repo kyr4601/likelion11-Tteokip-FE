@@ -21,11 +21,12 @@ const getData = async () => {
     try {
         const response = await axios.get(baseUrl + '/api/raffles/users', {
             params: {
-                userId: 1
+                userId: localStorage.getItem('user-id')
             }
         });
 
         const responseData = response.data; // response에서 데이터 추출
+        console.log(responseData)
         return responseData; // 전체 데이터 반환
     } catch (error) {
         console.log(error);

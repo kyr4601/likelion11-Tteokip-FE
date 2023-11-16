@@ -146,13 +146,48 @@ const likeBtn = document.getElementById('likeBtn');
 const empty = document.getElementById('emptyHeart');
 const fill = document.getElementById('fillHeart');
 
+
+
 likeBtn.addEventListener("click", function(){
+    //좋아요 삭제할때
     if(fill.style.display == "flex"){
         fill.style.display = "none";
         empty.style.display = "flex";
-    }else{
+        deleteLike(likeIdBox.id);
+        console.log('좋아요삭제')
+
+
+    }else{ //좋아요 생성할때
         fill.style.display = "flex";
         empty.style.display = "none";
+        console.log('받아온 itemid: ',posterimg.id)
+        makeLike(posterimg.id);
+
     }
 
 })
+
+const makeLike = (id) => {
+    axios.post(baseUrl + "/api/likes/create", {
+        "userId": localStorage.getItem('user-id'),
+        "itemId": id,
+    }).then(function (response) {
+        console.log('좋아요 생성');
+        console.log(response.data)
+        likeIdBox.id = response.data.likeId;
+    }).catch(function (error) {
+        console.log("error")
+    })
+}
+
+const deleteLike = (id) => {
+    axios.delete(baseUrl + "/api/likes/delete", {
+        params: {
+            "likeId": id
+        }
+    }).then(function (response) {
+        console.log('좋아요 삭제');
+    }).catch(function (error) {
+        console.log("error")
+    })
+}
