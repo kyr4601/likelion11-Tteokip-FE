@@ -1,10 +1,13 @@
 
-
 const baseUrl = "http://13.124.88.252:8080";
 
 
 function moveMypage() {
-    location.href = "../html/mypage.html";
+    location.href = "../html/main.html";
+}
+function getResultTermFromURL() {
+    const urlParams = new URLSearchParams(window.location.search);
+    return urlParams.get('raffleId');
 }
 
 
@@ -12,7 +15,7 @@ const getResult = async () => {
     try {
         const response = await axios.get(baseUrl + `/api/raffles/result`, {
             params: {
-                raffleId: 1
+                raffleId: getResultTermFromURL()
             }
         });
 
@@ -39,14 +42,16 @@ const result = async () => {
             resultinfo.innerText = '당첨 / ' + data.raffleCount + ' 매';
         }
 
-        const timeinfo = document.getElementById('time');
+        const timeinfo = document.getElementById('day/place');
         timeinfo.innerText = data.dateTime;
 
-        const seatinfo = document.getElementById('seat');
+        const seatinfo = document.getElementById('section_name');
         seatinfo.innerText = data.sectionName;
 
+/*
         const rateinfo = document.getElementById('rate');
         rateinfo.innerText = data.sectionRate;
+*/
 
     } catch (error) {
         console.log(error);

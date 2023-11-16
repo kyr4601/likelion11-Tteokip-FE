@@ -129,6 +129,7 @@ const totalvar = async () => {
                     if (result == 'true') {
                         moveResult();
                     } else {
+                        console.log(data[i-1].raffleStatus)
                         alert('응모에 당첨되지 않았습니다.' + '\n' + '아쉽지만 다음에 진행되는 응모에 도전해주세요.' + '\n' + '\n' + '항상 Koun을 사랑해주셔서 감사합니다.');
 
                     }
@@ -138,6 +139,11 @@ const totalvar = async () => {
                 let resultBtnText = document.createTextNode('결과');
                 resultBtn.appendChild(resultBtnText);
                 resultBtn.classList.add('result_button');
+                resultBtn.addEventListener('click', function (event) {
+                    let raffleidterm = data[i - 1].id;
+                    console.log(raffleidterm)
+                    window.location.href = 'resultPopup.html?raffleid=' + encodeURIComponent(raffleidterm);
+                });
 
 
                 let dDay = document.createElement("p");
@@ -173,27 +179,48 @@ const totalvar = async () => {
                     }
                 }
 
+                console.log(today_month,'today_month')
+                console.log(update_month,'update_month')
 
                 realdday = 5 - (today_date - update_date);
-                if (realdday <= 0) {
+
+                if (today_year > update_year) {
                     currentInform.textContent = "응모종료";
                     currentItemBox.appendChild(resultBtn);
                     currentItemBox.appendChild(currentInform);
-                    /*
-                                        let flag = document.createElement('p');
-                                        currentItemBox.appendChild(flag);
-                    */
-                } else {
-                    if (realdday <= 5) {
-                        currentInform.textContent = "응모중";
-                        dDay.textContent = "[D-" + realdday + ']';
-                        currentItemBox.appendChild(currentInform);
-                        currentItemBox.appendChild(dDay);
-                    } else {
-                        currentInform.textContent = '응모 시작 전';
+
+                }
+                else {
+                    if(today_month > update_month) {
+                        currentInform.textContent = "응모종료";
+                        currentItemBox.appendChild(resultBtn);
                         currentItemBox.appendChild(currentInform);
                     }
+                    else {
+                        if (realdday <= 0) {
+                            currentInform.textContent = "응모종료";
+                            currentItemBox.appendChild(resultBtn);
+                            currentItemBox.appendChild(currentInform);
+                        } else {
+                            if (realdday <= 5) {
+                                currentInform.textContent = "응모중";
+                                dDay.textContent = "[D-" + realdday + ']';
+                                currentItemBox.appendChild(currentInform);
+                                currentItemBox.appendChild(dDay);
+                            } else {
+                                console.log(realdday)
+                                console.log(today_date)
+                                console.log(update_date)
+                                currentInform.textContent = '응모 시작 전';
+                                currentItemBox.appendChild(currentInform);
+                            }
+                        }
+                    }
+
                 }
+
+
+
 
                 //current_itemBox를 itemBox에 추가
                 itemBox.appendChild(currentItemBox);
@@ -213,7 +240,6 @@ const totalvar = async () => {
 /*
                 let idbox = document.getElementById('lastState');
 */
-
 
                 cancelButton.addEventListener('click',(e) => {
                     let buttonId = e.target.id;
@@ -278,7 +304,7 @@ const totalvar = async () => {
 
             let popup3 = document.getElementById('done');
             popup3.addEventListener('click',() => {
-                alert('KOUN을 이용해주셔서 감사합니다.');
+                alert('KOUN을 이용해주셔서 감사합니다.')
                 window.location.href = "../html/main.html";
             })
 

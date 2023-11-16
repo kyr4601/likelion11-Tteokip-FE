@@ -3,11 +3,29 @@
 
 
 const goraffle = document.getElementById('goRaffle');
+const timetable = document.getElementById('timeTableBtn');
 
-goraffle.addEventListener("click", function (event){
-    applybtn = searchResult.innerText;
-    window.location.href = 'raffle.html?raffle=' + encodeURIComponent(applybtn);
+timetable.addEventListener("click",function(){
+    timetable.style.backgroundColor = '#26DDB1';
+    timetable.style.color = '#FFFFFF';
+    goraffle.style.backgroundColor = '#26DDB1';
+    goraffle.id = 'goraffle';
+/*    else if(timetable.style.backgroundColor == '#FFFFFF') {
+        goraffle.style.backgroundColor = '#8C9091';
+    }*/
 })
+
+goraffle.addEventListener("click", function (){
+    if(goraffle.id == 'goraffle') {
+        let applybtn = searchResult.innerText;
+        window.location.href = 'raffle.html?raffle=' + encodeURIComponent(applybtn);
+    }
+    else {
+        alert('회차를 선택해주세요.')
+    }
+})
+
+
 
 function moveMypage() {
     location.href = "../html/mypage.html";
