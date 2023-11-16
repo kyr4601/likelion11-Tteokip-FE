@@ -4,6 +4,7 @@
     <meta charset="UTF-8">
     <link rel="stylesheet" href="../css/pay.css">
     <script type="text/javascript" src="https://code.jquery.com/jquery-1.12.4.min.js" ></script>
+    <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
     <script type="text/javascript" src="https://cdn.iamport.kr/js/iamport.payment-1.1.5.js"></script>
     <title>pay</title>
 </head>
@@ -16,7 +17,6 @@
       <li class="navbar__menu__item">로그아웃</li>
       <li class="navbar__menu__item" onclick="moveMypage()">결과확인</li>
       <li class="navbar__menu__item" onclick="moveMypage()">마이페이지</li>
-      <li class="navbar__menu__item">고객센터</li>
     </ul>
   </nav>
   <div id="header" class="header">
@@ -104,7 +104,22 @@
       </section>
     </div>
   </main>
+  <script>
 
+    var globalAxiosInstance = axios.create();
+
+    // 인터셉터 설정
+    globalAxiosInstance.interceptors.request.use(function (config) {
+      const token = localStorage.getItem('login-token');
+      const publicPaths = ['/api/items/all', '/api/signup', '/api/form_login'];
+
+      if (!publicPaths.includes(config.url) && token) {
+        config.headers.Authorization = `Bearer ${token}`;
+      }
+
+      return config;
+    });
+  </script>
   <script src="../js/pay.js"></script>
 
 </body>

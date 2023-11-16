@@ -25,26 +25,6 @@ function moveMypage() {
     location.href = "../html/mypage.html";
 }
 
-
-/*like*/
-
-// const likeBtn = document.getElementById('likeBtn');
-// const empty = document.getElementById('emptyHeart');
-// const fill = document.getElementById('fillHeart');
-
-// likeBtn.addEventListener("click", function(){
-//     if(fill.style.display == "flex"){
-//         fill.style.display = "none";
-//         empty.style.display = "flex";
-//     }else{
-//         fill.style.display = "flex";
-//         empty.style.display = "none";
-//     }
-//
-// })
-
-/*cards*/
-
 const setupCarousel = (wrapperClass, carouselClass) => {
     const wrapper = document.querySelector(`.${wrapperClass}`);
     const carousel = document.querySelector(`.${carouselClass}`);
@@ -127,5 +107,107 @@ const setupCarousel = (wrapperClass, carouselClass) => {
 
 setupCarousel('wrapper1', 'carousel1');
 setupCarousel('wrapper2', 'carousel2');
+
+
+
+const navLogin = document.getElementById('login');
+
+navLogin.addEventListener('click', function(){
+    if(navLogin.innerText == '로그아웃'){
+        localStorage.removeItem('login-token');
+        localStorage.removeItem('user-id');
+        window.location.href= '../html/login.html'
+        navLogin.innerText == '로그인'
+    }
+    else{
+        window.location.href= '../html/login.html'
+    }
+
+})
+
+function updateCarousel(carouselSelector, data) {
+    const cards = document.querySelectorAll(`${carouselSelector} .card`);
+    const cardsArray = Array.from(cards);
+
+    cardsArray.forEach((card, index) => {
+        console.log(data[index]);
+        if (data[index]) {
+            const item = data[index];
+            card.querySelector('h3').textContent = item.itemName;
+            card.querySelector('.card-title span').textContent = item.artist;
+            let dDay = dday(item.uploadTime);
+            card.querySelector('.d-day p').textContent = dDay;
+            card.querySelector('.little-title1').innerHTML = `<img src="../img/location.png" alt="">${item.venue}`;
+            card.querySelector('.little-title2').innerHTML = `<img src="../img/calendar.png" alt="">${item.dateTime}`;
+            card.querySelector('.img img').src = item.post;
+        }
+    });
+}
+
+
+const likeChart = () => {
+    axios.get(baseUrl + '/api/items/tops')
+        .then(response => {
+            console.log(response.data.content)
+            updateCarousel('.carousel2', response.data.content);
+        })
+        .catch(error => console.error(error));
+}
+
+const newChart = () => {
+    axios.get(baseUrl + '/api/items/uploads')
+        .then(response => {
+            console.log(response.data.content)
+            updateCarousel('.carousel1', response.data.content);
+        })
+        .catch(error => console.error(error));
+}
+
+window.addEventListener('load', function() {
+    newChart();
+    likeChart();
+
+    if(localStorage.getItem('login-token')){
+        navLogin.innerText = '로그아웃'
+    }
+
+})
+
+const dday = (Time) => {
+    let now = new Date();
+    let today_year = now.getFullYear();
+    let today_month = now.getMonth() + 1;
+    let today_date = now.getDate();
+
+    let uploadTime = Time;
+    let update_year = uploadTime.split('-')[0];
+    let update_month = uploadTime.split('-')[1];
+    let update_date = uploadTime.split('-')[2];
+
+    if (today_year < update_year) {
+        today_month += 12;
+        let day30 = [2, 4, 6, 9, 11];
+        let day31 = [1, 3, 5, 7, 8, 10, 12];
+        if ((today_month < update_month) && (day30.includes(update_month))) {
+            if (today_month != 2) {
+                today_date += 30;
+            } else {
+                if ((today_year % 4 == 0 && today_year % 100 != 0) || today_year % 400 == 0) {
+                    today_date += 29;
+                } else {
+                    today_date += 28;
+                }
+            }
+        } else if (today_month < update_month && day31.includes(update_month)) {
+            today_date += 31;
+        }
+    }
+
+    let number = 5 - (today_date - update_date);
+
+    if (number <= 0) {
+        return '마감';
+    } else return "D-" + number;
+}
 
 

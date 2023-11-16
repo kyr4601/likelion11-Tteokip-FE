@@ -4,7 +4,8 @@ const baseUrl = "http://13.124.88.252:8080";
 const getiteminfo = () => {
     axios.get(baseUrl + '/api/items/search',{
         params: {
-            itemName: getTitleFromURL()
+            itemName: getTitleFromURL(),
+            userId: localStorage.getItem('user-id')
         }
     }).then(response =>{
         //console.log(response.data);
@@ -116,7 +117,7 @@ const createRaffle = () => {
     axios.post(baseUrl + "/api/raffles", {
         "raffleCount": quantity.innerText,
         "raffleDrawDate": getFormattedDateTime(),
-        "userId": 1,
+        "userId": localStorage.getItem('user-id'),
         "itemName": getTitleFromURL(),
         "sectionId": sectionid+1
     }).then(function (response) {
